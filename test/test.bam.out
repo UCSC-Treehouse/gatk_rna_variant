@@ -1,0 +1,973 @@
+/root/run.sh: line 7: tempdir: unbound variable
+[Wed Mar 15 17:06:20 UTC 2017] picard.sam.AddOrReplaceReadGroups INPUT=/data/work/test.bam OUTPUT=/data/work/test.readgroups.bam SORT_ORDER=coordinate RGLB=test RGPL=illumina RGPU=illumina RGSM=test VALIDATION_STRINGENCY=LENIENT CREATE_INDEX=true    RGID=1 VERBOSITY=INFO QUIET=false COMPRESSION_LEVEL=5 MAX_RECORDS_IN_RAM=500000 CREATE_MD5_FILE=false GA4GH_CLIENT_SECRETS=client_secrets.json
+[Wed Mar 15 17:06:20 UTC 2017] Executing as root@d31eb11c3ddb on Linux 4.4.0-47-generic amd64; OpenJDK 64-Bit Server VM 1.8.0_111-8u111-b14-3~14.04.1-b14; Picard version: 2.8.0-SNAPSHOT
+INFO	2017-03-15 17:06:20	AddOrReplaceReadGroups	Created read group ID=1 PL=illumina LB=test SM=test
+
+[Wed Mar 15 17:06:27 UTC 2017] picard.sam.AddOrReplaceReadGroups done. Elapsed time: 0.11 minutes.
+Runtime.totalMemory()=2058354688
+INFO  17:06:29,822 HelpFormatter - -------------------------------------------------------------------------------- 
+INFO  17:06:29,825 HelpFormatter - The Genome Analysis Toolkit (GATK) v3.6-0-g89b7209, Compiled 2016/06/01 22:27:29 
+INFO  17:06:29,825 HelpFormatter - Copyright (c) 2010-2016 The Broad Institute 
+INFO  17:06:29,826 HelpFormatter - For support and documentation go to https://www.broadinstitute.org/gatk 
+INFO  17:06:29,826 HelpFormatter - [Wed Mar 15 17:06:29 UTC 2017] Executing on Linux 4.4.0-47-generic amd64 
+INFO  17:06:29,827 HelpFormatter - OpenJDK 64-Bit Server VM 1.8.0_111-8u111-b14-3~14.04.1-b14 JdkDeflater 
+INFO  17:06:29,849 HelpFormatter - Program Args: -T SplitNCigarReads -R /data/ref/GCA_000001405.15_GRCh38_no_alt_analysis_set.fa -I /data/work/test.readgroups.bam -o /data/work/test.split.bam -rf ReassignOneMappingQuality -RMQF 255 -RMQT 60 -U ALLOW_N_CIGAR_READS 
+INFO  17:06:29,854 HelpFormatter - Executing as root@d31eb11c3ddb on Linux 4.4.0-47-generic amd64; OpenJDK 64-Bit Server VM 1.8.0_111-8u111-b14-3~14.04.1-b14. 
+INFO  17:06:29,855 HelpFormatter - Date/Time: 2017/03/15 17:06:29 
+INFO  17:06:29,856 HelpFormatter - -------------------------------------------------------------------------------- 
+INFO  17:06:29,856 HelpFormatter - -------------------------------------------------------------------------------- 
+INFO  17:06:30,137 GenomeAnalysisEngine - Strictness is SILENT 
+INFO  17:06:31,017 GenomeAnalysisEngine - Downsampling Settings: No downsampling 
+INFO  17:06:31,025 SAMDataSource$SAMReaders - Initializing SAMRecords in serial 
+INFO  17:06:31,086 SAMDataSource$SAMReaders - Done initializing BAM readers: total time 0.06 
+INFO  17:06:31,224 GenomeAnalysisEngine - Preparing for traversal over 1 BAM files 
+INFO  17:06:31,229 GenomeAnalysisEngine - Done preparing for traversal 
+INFO  17:06:31,229 ProgressMeter - [INITIALIZATION COMPLETE; STARTING PROCESSING] 
+INFO  17:06:31,230 ProgressMeter -                 | processed |    time |    per 1M |           |   total | remaining 
+INFO  17:06:31,230 ProgressMeter -        Location |     reads | elapsed |     reads | completed | runtime |   runtime 
+INFO  17:06:31,266 ReadShardBalancer$1 - Loading BAM index data 
+INFO  17:06:31,268 ReadShardBalancer$1 - Done loading BAM index data 
+DEBUG	2017-03-15 17:06:35	BlockCompressedOutputStream	Using deflater: Deflater
+INFO  17:06:38,121 ProgressMeter -            done    155757.0     6.0 s      44.0 s       77.3%     7.0 s       1.0 s 
+INFO  17:06:38,122 ProgressMeter - Total runtime 6.89 secs, 0.11 min, 0.00 hours 
+INFO  17:06:38,126 MicroScheduler - 0 reads were filtered out during the traversal out of approximately 155757 total reads (0.00%) 
+INFO  17:06:38,127 MicroScheduler -   -> 0 reads (0.00% of total) failing BadCigarFilter 
+INFO  17:06:38,127 MicroScheduler -   -> 0 reads (0.00% of total) failing MalformedReadFilter 
+INFO  17:06:38,128 MicroScheduler -   -> 0 reads (0.00% of total) failing ReassignOneMappingQualityFilter 
+------------------------------------------------------------------------------------------
+Done. There were no warn messages.
+------------------------------------------------------------------------------------------
+INFO  17:06:41,030 HelpFormatter - -------------------------------------------------------------------------------- 
+INFO  17:06:41,033 HelpFormatter - The Genome Analysis Toolkit (GATK) v3.6-0-g89b7209, Compiled 2016/06/01 22:27:29 
+INFO  17:06:41,034 HelpFormatter - Copyright (c) 2010-2016 The Broad Institute 
+INFO  17:06:41,034 HelpFormatter - For support and documentation go to https://www.broadinstitute.org/gatk 
+INFO  17:06:41,034 HelpFormatter - [Wed Mar 15 17:06:40 UTC 2017] Executing on Linux 4.4.0-47-generic amd64 
+INFO  17:06:41,035 HelpFormatter - OpenJDK 64-Bit Server VM 1.8.0_111-8u111-b14-3~14.04.1-b14 JdkDeflater 
+INFO  17:06:41,051 HelpFormatter - Program Args: -T RealignerTargetCreator -R /data/ref/GCA_000001405.15_GRCh38_no_alt_analysis_set.fa -I /data/work/test.split.bam -o /data/work/test.split.intervals -nt 24 
+INFO  17:06:41,075 HelpFormatter - Executing as root@d31eb11c3ddb on Linux 4.4.0-47-generic amd64; OpenJDK 64-Bit Server VM 1.8.0_111-8u111-b14-3~14.04.1-b14. 
+INFO  17:06:41,076 HelpFormatter - Date/Time: 2017/03/15 17:06:41 
+INFO  17:06:41,076 HelpFormatter - -------------------------------------------------------------------------------- 
+INFO  17:06:41,076 HelpFormatter - -------------------------------------------------------------------------------- 
+INFO  17:06:41,097 GenomeAnalysisEngine - Strictness is SILENT 
+INFO  17:06:41,338 GenomeAnalysisEngine - Downsampling Settings: Method: BY_SAMPLE, Target Coverage: 1000 
+INFO  17:06:41,346 SAMDataSource$SAMReaders - Initializing SAMRecords in serial 
+INFO  17:06:41,418 SAMDataSource$SAMReaders - Done initializing BAM readers: total time 0.07 
+INFO  17:06:41,490 MicroScheduler - Running the GATK in parallel mode with 24 total threads, 1 CPU thread(s) for each of 24 data thread(s), of 31 processors available on this machine 
+INFO  17:06:41,606 GenomeAnalysisEngine - Preparing for traversal over 1 BAM files 
+INFO  17:06:41,729 GenomeAnalysisEngine - Done preparing for traversal 
+INFO  17:06:41,730 ProgressMeter - [INITIALIZATION COMPLETE; STARTING PROCESSING] 
+INFO  17:06:41,731 ProgressMeter -                 | processed |    time |    per 1M |           |   total | remaining 
+INFO  17:06:41,731 ProgressMeter -        Location |     sites | elapsed |     sites | completed | runtime |   runtime 
+INFO  17:06:42,001 SAMDataSource$SAMReaders - Initializing SAMRecords in serial 
+INFO  17:06:42,091 SAMDataSource$SAMReaders - Done initializing BAM readers: total time 0.09 
+INFO  17:06:42,452 SAMDataSource$SAMReaders - Initializing SAMRecords in serial 
+INFO  17:06:42,482 SAMDataSource$SAMReaders - Done initializing BAM readers: total time 0.03 
+INFO  17:06:42,482 SAMDataSource$SAMReaders - Initializing SAMRecords in serial 
+INFO  17:06:42,500 SAMDataSource$SAMReaders - Done initializing BAM readers: total time 0.02 
+INFO  17:06:42,501 SAMDataSource$SAMReaders - Initializing SAMRecords in serial 
+INFO  17:06:42,569 SAMDataSource$SAMReaders - Done initializing BAM readers: total time 0.07 
+INFO  17:06:42,570 SAMDataSource$SAMReaders - Initializing SAMRecords in serial 
+INFO  17:06:43,484 SAMDataSource$SAMReaders - Done initializing BAM readers: total time 0.91 
+INFO  17:06:43,485 SAMDataSource$SAMReaders - Initializing SAMRecords in serial 
+INFO  17:06:43,507 SAMDataSource$SAMReaders - Done initializing BAM readers: total time 0.02 
+INFO  17:06:43,508 SAMDataSource$SAMReaders - Initializing SAMRecords in serial 
+INFO  17:06:48,686 SAMDataSource$SAMReaders - Done initializing BAM readers: total time 5.18 
+INFO  17:06:48,692 SAMDataSource$SAMReaders - Initializing SAMRecords in serial 
+INFO  17:06:48,710 SAMDataSource$SAMReaders - Done initializing BAM readers: total time 0.02 
+INFO  17:06:48,711 SAMDataSource$SAMReaders - Initializing SAMRecords in serial 
+INFO  17:06:48,724 SAMDataSource$SAMReaders - Done initializing BAM readers: total time 0.01 
+INFO  17:06:48,725 SAMDataSource$SAMReaders - Initializing SAMRecords in serial 
+INFO  17:06:48,774 SAMDataSource$SAMReaders - Done initializing BAM readers: total time 0.05 
+INFO  17:06:48,775 SAMDataSource$SAMReaders - Initializing SAMRecords in serial 
+INFO  17:06:48,797 SAMDataSource$SAMReaders - Done initializing BAM readers: total time 0.02 
+INFO  17:06:48,819 SAMDataSource$SAMReaders - Initializing SAMRecords in serial 
+INFO  17:06:48,861 SAMDataSource$SAMReaders - Done initializing BAM readers: total time 0.04 
+INFO  17:06:53,301 SAMDataSource$SAMReaders - Initializing SAMRecords in serial 
+INFO  17:06:53,314 SAMDataSource$SAMReaders - Done initializing BAM readers: total time 0.01 
+INFO  17:06:53,321 SAMDataSource$SAMReaders - Initializing SAMRecords in serial 
+INFO  17:06:53,379 SAMDataSource$SAMReaders - Done initializing BAM readers: total time 0.06 
+INFO  17:06:53,380 SAMDataSource$SAMReaders - Initializing SAMRecords in serial 
+INFO  17:06:53,402 SAMDataSource$SAMReaders - Done initializing BAM readers: total time 0.02 
+INFO  17:06:53,403 SAMDataSource$SAMReaders - Initializing SAMRecords in serial 
+INFO  17:06:53,428 SAMDataSource$SAMReaders - Done initializing BAM readers: total time 0.02 
+INFO  17:06:53,431 SAMDataSource$SAMReaders - Initializing SAMRecords in serial 
+INFO  17:06:53,445 SAMDataSource$SAMReaders - Done initializing BAM readers: total time 0.01 
+INFO  17:06:53,446 SAMDataSource$SAMReaders - Initializing SAMRecords in serial 
+INFO  17:06:53,464 SAMDataSource$SAMReaders - Done initializing BAM readers: total time 0.02 
+INFO  17:06:53,471 SAMDataSource$SAMReaders - Initializing SAMRecords in serial 
+INFO  17:06:53,503 SAMDataSource$SAMReaders - Done initializing BAM readers: total time 0.01 
+INFO  17:06:53,507 SAMDataSource$SAMReaders - Initializing SAMRecords in serial 
+INFO  17:06:53,554 SAMDataSource$SAMReaders - Done initializing BAM readers: total time 0.05 
+INFO  17:06:53,555 SAMDataSource$SAMReaders - Initializing SAMRecords in serial 
+INFO  17:06:53,566 SAMDataSource$SAMReaders - Done initializing BAM readers: total time 0.01 
+INFO  17:06:53,567 SAMDataSource$SAMReaders - Initializing SAMRecords in serial 
+INFO  17:06:53,587 SAMDataSource$SAMReaders - Done initializing BAM readers: total time 0.02 
+INFO  17:06:53,592 SAMDataSource$SAMReaders - Initializing SAMRecords in serial 
+INFO  17:06:53,606 SAMDataSource$SAMReaders - Done initializing BAM readers: total time 0.01 
+INFO  17:07:13,915 ProgressMeter - chr15:101991121    950272.0    32.0 s      33.0 s       77.4%    41.0 s       9.0 s 
+INFO  17:07:44,277 ProgressMeter -   chrY:19156501   3326741.0    62.0 s      18.0 s       98.4%    63.0 s       1.0 s 
+INFO  17:08:14,422 ProgressMeter -   chrY:35597401   3326741.0    92.0 s      27.0 s       98.9%    92.0 s       0.0 s 
+INFO  17:08:44,440 ProgressMeter -   chrEBV:171801   1.12507901E8     2.0 m       1.0 s      100.0%     2.0 m       0.0 s 
+INFO  17:09:14,442 ProgressMeter -   chrEBV:171801   2.92797099E8     2.5 m       0.0 s      100.0%     2.5 m       0.0 s 
+INFO  17:09:44,470 ProgressMeter -   chrEBV:171801   4.56427825E8     3.0 m       0.0 s      100.0%     3.0 m       0.0 s 
+INFO  17:10:14,472 ProgressMeter -   chrEBV:171801   7.52474336E8     3.5 m       0.0 s      100.0%     3.5 m       0.0 s 
+INFO  17:10:44,480 ProgressMeter -   chrEBV:171801   1.053653867E9     4.0 m       0.0 s      100.0%     4.0 m       0.0 s 
+INFO  17:11:14,490 ProgressMeter -   chrEBV:171801   1.498170147E9     4.5 m       0.0 s      100.0%     4.5 m       0.0 s 
+INFO  17:11:44,514 ProgressMeter -   chrEBV:171801   2.850966119E9     5.0 m       0.0 s      100.0%     5.0 m       0.0 s 
+INFO  17:11:45,911 ProgressMeter -            done   3.099922541E9     5.1 m       0.0 s      100.0%     5.1 m       0.0 s 
+INFO  17:11:45,911 ProgressMeter - Total runtime 304.18 secs, 5.07 min, 0.08 hours 
+INFO  17:11:45,912 MicroScheduler - 17419 reads were filtered out during the traversal out of approximately 164403 total reads (10.60%) 
+INFO  17:11:45,912 MicroScheduler -   -> 0 reads (0.00% of total) failing BadCigarFilter 
+INFO  17:11:45,912 MicroScheduler -   -> 0 reads (0.00% of total) failing BadMateFilter 
+INFO  17:11:45,913 MicroScheduler -   -> 16544 reads (10.06% of total) failing DuplicateReadFilter 
+INFO  17:11:45,913 MicroScheduler -   -> 0 reads (0.00% of total) failing FailsVendorQualityCheckFilter 
+INFO  17:11:45,913 MicroScheduler -   -> 0 reads (0.00% of total) failing MalformedReadFilter 
+INFO  17:11:45,914 MicroScheduler -   -> 0 reads (0.00% of total) failing MappingQualityUnavailableFilter 
+INFO  17:11:45,914 MicroScheduler -   -> 30 reads (0.02% of total) failing MappingQualityZeroFilter 
+INFO  17:11:45,914 MicroScheduler -   -> 845 reads (0.51% of total) failing NotPrimaryAlignmentFilter 
+INFO  17:11:45,916 MicroScheduler -   -> 0 reads (0.00% of total) failing Platform454Filter 
+INFO  17:11:45,916 MicroScheduler -   -> 0 reads (0.00% of total) failing UnmappedReadFilter 
+------------------------------------------------------------------------------------------
+Done. There were no warn messages.
+------------------------------------------------------------------------------------------
+INFO  17:11:50,417 HelpFormatter - -------------------------------------------------------------------------------- 
+INFO  17:11:50,420 HelpFormatter - The Genome Analysis Toolkit (GATK) v3.6-0-g89b7209, Compiled 2016/06/01 22:27:29 
+INFO  17:11:50,421 HelpFormatter - Copyright (c) 2010-2016 The Broad Institute 
+INFO  17:11:50,421 HelpFormatter - For support and documentation go to https://www.broadinstitute.org/gatk 
+INFO  17:11:50,421 HelpFormatter - [Wed Mar 15 17:11:50 UTC 2017] Executing on Linux 4.4.0-47-generic amd64 
+INFO  17:11:50,422 HelpFormatter - OpenJDK 64-Bit Server VM 1.8.0_111-8u111-b14-3~14.04.1-b14 JdkDeflater 
+INFO  17:11:50,434 HelpFormatter - Program Args: -T IndelRealigner -R /data/ref/GCA_000001405.15_GRCh38_no_alt_analysis_set.fa -I /data/work/test.split.bam -targetIntervals /data/work/test.split.intervals -o /data/work/test.split.realigned.bam 
+INFO  17:11:50,448 HelpFormatter - Executing as root@d31eb11c3ddb on Linux 4.4.0-47-generic amd64; OpenJDK 64-Bit Server VM 1.8.0_111-8u111-b14-3~14.04.1-b14. 
+INFO  17:11:50,448 HelpFormatter - Date/Time: 2017/03/15 17:11:50 
+INFO  17:11:50,449 HelpFormatter - -------------------------------------------------------------------------------- 
+INFO  17:11:50,449 HelpFormatter - -------------------------------------------------------------------------------- 
+INFO  17:11:50,574 GenomeAnalysisEngine - Strictness is SILENT 
+INFO  17:11:50,985 GenomeAnalysisEngine - Downsampling Settings: No downsampling 
+INFO  17:11:51,002 SAMDataSource$SAMReaders - Initializing SAMRecords in serial 
+INFO  17:11:51,069 SAMDataSource$SAMReaders - Done initializing BAM readers: total time 0.06 
+INFO  17:11:51,302 GenomeAnalysisEngine - Preparing for traversal over 1 BAM files 
+INFO  17:11:51,316 GenomeAnalysisEngine - Done preparing for traversal 
+INFO  17:11:51,316 ProgressMeter - [INITIALIZATION COMPLETE; STARTING PROCESSING] 
+INFO  17:11:51,317 ProgressMeter -                 | processed |    time |    per 1M |           |   total | remaining 
+INFO  17:11:51,317 ProgressMeter -        Location |     reads | elapsed |     reads | completed | runtime |   runtime 
+INFO  17:11:51,372 ReadShardBalancer$1 - Loading BAM index data 
+INFO  17:11:51,374 ReadShardBalancer$1 - Done loading BAM index data 
+DEBUG	2017-03-15 17:11:53	BlockCompressedOutputStream	Using deflater: Deflater
+INFO  17:12:01,103 ProgressMeter -            done    162742.0     9.0 s      60.0 s       77.3%    11.0 s       2.0 s 
+INFO  17:12:01,104 ProgressMeter - Total runtime 9.79 secs, 0.16 min, 0.00 hours 
+INFO  17:12:01,107 MicroScheduler - 0 reads were filtered out during the traversal out of approximately 162742 total reads (0.00%) 
+INFO  17:12:01,107 MicroScheduler -   -> 0 reads (0.00% of total) failing BadCigarFilter 
+INFO  17:12:01,108 MicroScheduler -   -> 0 reads (0.00% of total) failing MalformedReadFilter 
+------------------------------------------------------------------------------------------
+Done. There were no warn messages.
+------------------------------------------------------------------------------------------
+INFO  17:12:04,095 HelpFormatter - -------------------------------------------------------------------------------- 
+INFO  17:12:04,098 HelpFormatter - The Genome Analysis Toolkit (GATK) v3.6-0-g89b7209, Compiled 2016/06/01 22:27:29 
+INFO  17:12:04,099 HelpFormatter - Copyright (c) 2010-2016 The Broad Institute 
+INFO  17:12:04,099 HelpFormatter - For support and documentation go to https://www.broadinstitute.org/gatk 
+INFO  17:12:04,099 HelpFormatter - [Wed Mar 15 17:12:04 UTC 2017] Executing on Linux 4.4.0-47-generic amd64 
+INFO  17:12:04,100 HelpFormatter - OpenJDK 64-Bit Server VM 1.8.0_111-8u111-b14-3~14.04.1-b14 JdkDeflater 
+INFO  17:12:04,106 HelpFormatter - Program Args: -T HaplotypeCaller -R /data/ref/GCA_000001405.15_GRCh38_no_alt_analysis_set.fa -I /data/work/test.split.realigned.bam -dontUseSoftClippedBases -stand_call_conf 20.0 -stand_emit_conf 20.0 -o /data/work/test.split.realigned.HaplotypeCaller.vcf -nct 4 
+INFO  17:12:04,135 HelpFormatter - Executing as root@d31eb11c3ddb on Linux 4.4.0-47-generic amd64; OpenJDK 64-Bit Server VM 1.8.0_111-8u111-b14-3~14.04.1-b14. 
+INFO  17:12:04,136 HelpFormatter - Date/Time: 2017/03/15 17:12:04 
+INFO  17:12:04,136 HelpFormatter - -------------------------------------------------------------------------------- 
+INFO  17:12:04,137 HelpFormatter - -------------------------------------------------------------------------------- 
+INFO  17:12:04,171 GenomeAnalysisEngine - Strictness is SILENT 
+INFO  17:12:04,428 GenomeAnalysisEngine - Downsampling Settings: Method: BY_SAMPLE, Target Coverage: 500 
+INFO  17:12:04,438 SAMDataSource$SAMReaders - Initializing SAMRecords in serial 
+INFO  17:12:04,511 SAMDataSource$SAMReaders - Done initializing BAM readers: total time 0.07 
+INFO  17:12:04,534 HCMappingQualityFilter - Filtering out reads with MAPQ < 20 
+INFO  17:12:04,562 MicroScheduler - Running the GATK in parallel mode with 4 total threads, 4 CPU thread(s) for each of 1 data thread(s), of 31 processors available on this machine 
+INFO  17:12:04,670 GenomeAnalysisEngine - Preparing for traversal over 1 BAM files 
+INFO  17:12:04,800 GenomeAnalysisEngine - Done preparing for traversal 
+INFO  17:12:04,801 ProgressMeter - [INITIALIZATION COMPLETE; STARTING PROCESSING] 
+INFO  17:12:04,802 ProgressMeter -                 |      processed |    time |         per 1M |           |   total | remaining 
+INFO  17:12:04,803 ProgressMeter -        Location | active regions | elapsed | active regions | completed | runtime |   runtime 
+INFO  17:12:04,804 HaplotypeCaller - Disabling physical phasing, which is supported only for reference-model confidence output 
+INFO  17:12:04,844 StrandBiasTest - SAM/BAM data was found. Attempting to use read data to calculate strand bias annotations values. 
+WARN  17:12:04,845 InbreedingCoeff - Annotation will not be calculated. InbreedingCoeff requires at least 10 unrelated samples. 
+INFO  17:12:04,846 StrandBiasTest - SAM/BAM data was found. Attempting to use read data to calculate strand bias annotations values. 
+INFO  17:12:04,974 HaplotypeCaller - Using global mismapping rate of 45 => -4.5 in log10 likelihood units 
+INFO  17:12:04,976 PairHMM - Performance profiling for PairHMM is disabled because the program is being run with multiple threads (-nct>1) option
+Profiling is enabled only when running in single thread mode
+ 
+INFO  17:12:34,830 ProgressMeter -   chr1:21132934              0.0    30.0 s           49.6 w        0.7%    73.3 m      72.8 m 
+INFO  17:13:04,835 ProgressMeter -   chr1:43415998              0.0    60.0 s           99.3 w        1.4%    71.4 m      70.4 m 
+INFO  17:13:34,859 ProgressMeter -   chr1:97570303              0.0    90.0 s          148.9 w        3.1%    47.7 m      46.2 m 
+INFO  17:14:04,873 ProgressMeter -  chr1:145745801              0.0   120.0 s          198.5 w        4.7%    42.5 m      40.5 m 
+INFO  17:14:34,879 ProgressMeter -  chr1:188343180              0.0     2.5 m          248.1 w        6.1%    41.1 m      38.6 m 
+INFO  17:15:04,890 ProgressMeter -  chr1:246477911              0.0     3.0 m          297.8 w        8.0%    37.7 m      34.7 m 
+INFO  17:15:34,896 ProgressMeter -   chr2:33494200     2.48956422E8     3.5 m            0.0 s        9.1%    38.4 m      34.9 m 
+INFO  17:16:04,907 ProgressMeter -   chr2:69848282     2.48956422E8     4.0 m            0.0 s       10.3%    38.9 m      34.9 m 
+INFO  17:16:34,922 ProgressMeter -  chr2:111873485     2.48956422E8     4.5 m            1.0 s       11.6%    38.7 m      34.2 m 
+INFO  17:17:04,936 ProgressMeter -  chr2:172258000     2.48956422E8     5.0 m            1.0 s       13.6%    36.8 m      31.8 m 
+INFO  17:17:34,961 ProgressMeter -  chr2:217741805     2.48956422E8     5.5 m            1.0 s       15.1%    36.5 m      31.0 m 
+INFO  17:18:04,966 ProgressMeter -    chr3:7641511     4.91149951E8     6.0 m            0.0 s       16.1%    37.3 m      31.3 m 
+INFO  17:18:35,035 ProgressMeter -   chr3:59543386     4.91149951E8     6.5 m            0.0 s       17.8%    36.6 m      30.1 m 
+INFO  17:19:05,094 ProgressMeter -  chr3:114615626     4.91149951E8     7.0 m            0.0 s       19.5%    35.8 m      28.8 m 
+INFO  17:19:35,118 ProgressMeter -  chr3:151353766     4.91149951E8     7.5 m            0.0 s       20.7%    36.2 m      28.7 m 
+INFO  17:20:05,128 ProgressMeter -  chr3:196678363     4.91149951E8     8.0 m            0.0 s       22.2%    36.1 m      28.1 m 
+INFO  17:20:35,131 ProgressMeter -   chr4:42808600      6.8944551E8     8.5 m            0.0 s       23.6%    36.0 m      27.5 m 
+INFO  17:21:05,135 ProgressMeter -   chr4:89060173      6.8944551E8     9.0 m            0.0 s       25.1%    35.8 m      26.8 m 
+INFO  17:21:35,139 ProgressMeter -  chr4:125271663      6.8944551E8     9.5 m            0.0 s       26.3%    36.1 m      26.6 m 
+INFO  17:22:05,149 ProgressMeter -  chr4:184711000      6.8944551E8    10.0 m            0.0 s       28.2%    35.5 m      25.5 m 
+INFO  17:22:35,200 ProgressMeter -   chr5:39387102     8.79660065E8    10.5 m            0.0 s       29.6%    35.4 m      24.9 m 
+INFO  17:23:05,215 ProgressMeter -   chr5:75478367     8.79660065E8    11.0 m            0.0 s       30.8%    35.7 m      24.7 m 
+INFO  17:23:35,226 ProgressMeter -  chr5:120576072     8.79660065E8    11.5 m            0.0 s       32.3%    35.6 m      24.1 m 
+INFO  17:24:05,232 ProgressMeter -  chr5:178347093     8.79660065E8    12.0 m            0.0 s       34.1%    35.2 m      23.2 m 
+INFO  17:24:35,247 ProgressMeter -   chr6:37108041    1.061198324E9    12.5 m            0.0 s       35.4%    35.3 m      22.8 m 
+INFO  17:25:05,260 ProgressMeter -   chr6:70958457    1.061198324E9    13.0 m            0.0 s       36.5%    35.6 m      22.6 m 
+INFO  17:25:35,277 ProgressMeter -  chr6:131326000    1.061198324E9    13.5 m            0.0 s       38.5%    35.1 m      21.6 m 
+INFO  17:26:05,283 ProgressMeter -    chr7:7830824    1.232004303E9    14.0 m            0.0 s       40.0%    35.0 m      21.0 m 
+INFO  17:26:35,298 ProgressMeter -   chr7:43731649    1.232004303E9    14.5 m            0.0 s       41.2%    35.2 m      20.7 m 
+INFO  17:27:05,311 ProgressMeter -   chr7:91757305    1.232004303E9    15.0 m            0.0 s       42.7%    35.1 m      20.1 m 
+INFO  17:27:35,315 ProgressMeter -  chr7:149903615    1.232004303E9    15.5 m            0.0 s       44.6%    34.8 m      19.3 m 
+INFO  17:28:05,333 ProgressMeter -   chr8:31281487    1.391350276E9    16.0 m            0.0 s       45.9%    34.9 m      18.9 m 
+INFO  17:28:35,355 ProgressMeter -   chr8:68099738    1.391350276E9    16.5 m            0.0 s       47.1%    35.0 m      18.5 m 
+INFO  17:29:05,371 ProgressMeter -  chr8:125612200    1.391350276E9    17.0 m            0.0 s       48.9%    34.7 m      17.7 m 
+INFO  17:29:35,395 ProgressMeter -   chr9:27317801    1.536488912E9    17.5 m            0.0 s       50.4%    34.7 m      17.2 m 
+INFO  17:30:05,435 ProgressMeter -   chr9:63847902    1.536488912E9    18.0 m            0.0 s       51.6%    34.9 m      16.9 m 
+INFO  17:30:35,457 ProgressMeter -  chr9:109357001    1.536488912E9    18.5 m            0.0 s       53.1%    34.8 m      16.3 m 
+INFO  17:31:05,465 ProgressMeter -  chr10:23809600    1.674883629E9    19.0 m            0.0 s       54.8%    34.7 m      15.7 m 
+INFO  17:31:35,477 ProgressMeter -  chr10:69669101    1.674883629E9    19.5 m            0.0 s       56.3%    34.6 m      15.1 m 
+INFO  17:32:05,551 ProgressMeter - chr10:107797342    1.674883629E9    20.0 m            0.0 s       57.5%    34.8 m      14.8 m 
+INFO  17:32:35,788 ProgressMeter -  chr11:29069587    1.808681051E9    20.5 m            0.0 s       59.3%    34.6 m      14.1 m 
+INFO  17:33:05,813 ProgressMeter -  chr11:80332710    1.808681051E9    21.0 m            0.0 s       60.9%    34.5 m      13.5 m 
+INFO  17:33:35,822 ProgressMeter - chr11:115733182    1.808681051E9    21.5 m            0.0 s       62.1%    34.7 m      13.1 m 
+INFO  17:34:05,840 ProgressMeter -  chr12:22885544    1.943767673E9    22.0 m            0.0 s       63.4%    34.7 m      12.7 m 
+INFO  17:34:35,844 ProgressMeter -  chr12:79092028    1.943767673E9    22.5 m            0.0 s       65.3%    34.5 m      12.0 m 
+INFO  17:35:05,864 ProgressMeter - chr12:126341012    1.943767673E9    23.0 m            0.0 s       66.8%    34.5 m      11.5 m 
+INFO  17:35:35,869 ProgressMeter -  chr13:27910390    2.077042982E9    23.5 m            0.0 s       67.9%    34.6 m      11.1 m 
+INFO  17:36:05,880 ProgressMeter -  chr13:88791235    2.077042982E9    24.0 m            0.0 s       69.9%    34.4 m      10.4 m 
+INFO  17:36:35,898 ProgressMeter -  chr14:21046243     2.19140731E9    24.5 m            0.0 s       71.4%    34.4 m       9.8 m 
+INFO  17:37:05,902 ProgressMeter -  chr14:56387843     2.19140731E9    25.0 m            0.0 s       72.5%    34.5 m       9.5 m 
+INFO  17:37:35,925 ProgressMeter - chr14:107043718     2.19140731E9    25.5 m            0.0 s       74.1%    34.4 m       8.9 m 
+INFO  17:38:05,932 ProgressMeter -  chr15:52042901    2.298451028E9    26.0 m            0.0 s       75.8%    34.3 m       8.3 m 
+INFO  17:38:35,993 ProgressMeter -  chr15:95906681    2.298451028E9    26.5 m            0.0 s       77.2%    34.3 m       7.8 m 
+Using AVX accelerated implementation of PairHMM
+INFO  17:38:39,986 VectorLoglessPairHMM - libVectorLoglessPairHMM unpacked successfully from GATK jar file 
+INFO  17:38:39,987 VectorLoglessPairHMM - Using vectorized implementation of PairHMM 
+WARN  17:38:40,582 HaplotypeScore - Annotation will not be calculated, must be called from UnifiedGenotyper 
+WARN  17:38:40,582 HaplotypeScore - Annotation will not be calculated, must be called from UnifiedGenotyper 
+INFO  17:39:06,012 ProgressMeter -  chr15:98765944    2.298451028E9    27.0 m            0.0 s       77.3%    34.9 m       7.9 m 
+WARN  17:39:31,738 HaplotypeCallerGenotypingEngine - location chr15:98963213-98963217: too many alternative alleles found (7) larger than the maximum requested with -maxAltAlleles (6), the following will be dropped: A. 
+INFO  17:39:36,016 ProgressMeter - chr15:101991189    2.298451028E9    27.5 m            0.0 s       77.4%    35.5 m       8.0 m 
+WARN  17:39:39,675 HaplotypeCallerGenotypingEngine - location chr15:98960905-98960906: too many alternative alleles found (7) larger than the maximum requested with -maxAltAlleles (6), the following will be dropped: GTCC. 
+INFO  17:40:06,019 ProgressMeter -  chr16:35054863    2.400442217E9    28.0 m            0.0 s       78.6%    35.7 m       7.6 m 
+INFO  17:40:36,033 ProgressMeter -  chr16:70042069    2.400442217E9    28.5 m            0.0 s       79.7%    35.8 m       7.3 m 
+INFO  17:41:06,056 ProgressMeter -  chr17:24965986    2.490780562E9    29.0 m            0.0 s       81.2%    35.8 m       6.7 m 
+INFO  17:41:36,066 ProgressMeter -  chr17:75743962    2.490780562E9    29.5 m            0.0 s       82.8%    35.7 m       6.1 m 
+INFO  17:42:06,077 ProgressMeter -  chr18:30449339    2.574038003E9    30.0 m            0.0 s       84.0%    35.7 m       5.7 m 
+INFO  17:42:36,089 ProgressMeter -  chr18:66286747    2.574038003E9    30.5 m            0.0 s       85.2%    35.8 m       5.3 m 
+INFO  17:43:06,098 ProgressMeter -  chr19:39999604    2.654411288E9    31.0 m            0.0 s       86.9%    35.7 m       4.7 m 
+INFO  17:43:36,114 ProgressMeter -  chr20:24462411    2.713028904E9    31.5 m            0.0 s       88.3%    35.7 m       4.2 m 
+INFO  17:44:06,120 ProgressMeter -  chr20:58663300    2.713028904E9    32.0 m            0.0 s       89.4%    35.8 m       3.8 m 
+INFO  17:44:36,131 ProgressMeter -  chr21:41294276    2.777473071E9    32.5 m            0.0 s       90.9%    35.8 m       3.2 m 
+INFO  17:45:06,137 ProgressMeter -  chr22:45491007    2.824183054E9    33.0 m            0.0 s       92.6%    35.7 m       2.6 m 
+INFO  17:45:36,149 ProgressMeter -   chrX:30440501    2.875001522E9    33.5 m            0.0 s       93.7%    35.8 m       2.2 m 
+INFO  17:46:06,173 ProgressMeter -   chrX:69613600    2.875001522E9    34.0 m            0.0 s       95.0%    35.8 m     107.0 s 
+INFO  17:46:36,183 ProgressMeter -  chrX:127977313    2.875001522E9    34.5 m            0.0 s       96.9%    35.6 m      66.0 s 
+INFO  17:47:06,187 ProgressMeter -   chrY:18087710    3.031042417E9    35.0 m            0.0 s       98.4%    35.6 m      34.0 s 
+INFO  17:47:36,196 ProgressMeter -   chrY:46310755    3.031042417E9    35.5 m            0.0 s       99.3%    35.8 m      15.0 s 
+INFO  17:47:54,377 HaplotypeCaller - Ran local assembly on 422 active regions 
+INFO  17:47:54,530 ProgressMeter -            done    3.099922541E9    35.8 m            0.0 s      100.0%    35.8 m       0.0 s 
+INFO  17:47:54,530 ProgressMeter - Total runtime 2149.73 secs, 35.83 min, 0.60 hours 
+INFO  17:47:54,531 MicroScheduler - 17813 reads were filtered out during the traversal out of approximately 162742 total reads (10.95%) 
+INFO  17:47:54,532 MicroScheduler -   -> 0 reads (0.00% of total) failing BadCigarFilter 
+INFO  17:47:54,533 MicroScheduler -   -> 16251 reads (9.99% of total) failing DuplicateReadFilter 
+INFO  17:47:54,533 MicroScheduler -   -> 0 reads (0.00% of total) failing FailsVendorQualityCheckFilter 
+INFO  17:47:54,534 MicroScheduler -   -> 1562 reads (0.96% of total) failing HCMappingQualityFilter 
+INFO  17:47:54,534 MicroScheduler -   -> 0 reads (0.00% of total) failing MalformedReadFilter 
+INFO  17:47:54,534 MicroScheduler -   -> 0 reads (0.00% of total) failing MappingQualityUnavailableFilter 
+INFO  17:47:54,535 MicroScheduler -   -> 0 reads (0.00% of total) failing NotPrimaryAlignmentFilter 
+INFO  17:47:54,535 MicroScheduler -   -> 0 reads (0.00% of total) failing UnmappedReadFilter 
+------------------------------------------------------------------------------------------
+Done. There were 5 WARN messages, the first 5 are repeated below.
+WARN  17:12:04,845 InbreedingCoeff - Annotation will not be calculated. InbreedingCoeff requires at least 10 unrelated samples. 
+WARN  17:38:40,582 HaplotypeScore - Annotation will not be calculated, must be called from UnifiedGenotyper 
+WARN  17:38:40,582 HaplotypeScore - Annotation will not be calculated, must be called from UnifiedGenotyper 
+WARN  17:39:31,738 HaplotypeCallerGenotypingEngine - location chr15:98963213-98963217: too many alternative alleles found (7) larger than the maximum requested with -maxAltAlleles (6), the following will be dropped: A. 
+WARN  17:39:39,675 HaplotypeCallerGenotypingEngine - location chr15:98960905-98960906: too many alternative alleles found (7) larger than the maximum requested with -maxAltAlleles (6), the following will be dropped: GTCC. 
+------------------------------------------------------------------------------------------
+INFO  17:47:58,790 HelpFormatter - -------------------------------------------------------------------------------- 
+INFO  17:47:58,793 HelpFormatter - The Genome Analysis Toolkit (GATK) v3.6-0-g89b7209, Compiled 2016/06/01 22:27:29 
+INFO  17:47:58,794 HelpFormatter - Copyright (c) 2010-2016 The Broad Institute 
+INFO  17:47:58,794 HelpFormatter - For support and documentation go to https://www.broadinstitute.org/gatk 
+INFO  17:47:58,795 HelpFormatter - [Wed Mar 15 17:47:58 UTC 2017] Executing on Linux 4.4.0-47-generic amd64 
+INFO  17:47:58,795 HelpFormatter - OpenJDK 64-Bit Server VM 1.8.0_111-8u111-b14-3~14.04.1-b14 JdkDeflater 
+INFO  17:47:58,802 HelpFormatter - Program Args: -T VariantFiltration -R /data/ref/GCA_000001405.15_GRCh38_no_alt_analysis_set.fa -V /data/work/test.split.realigned.HaplotypeCaller.vcf -window 35 -cluster 3 -filterName FS -filter FS > 30.0 -filterName QD -filter QD < 2.0 -o /data/work/test.split.realigned.HaplotypeCaller.filtered.vcf 
+INFO  17:47:58,819 HelpFormatter - Executing as root@d31eb11c3ddb on Linux 4.4.0-47-generic amd64; OpenJDK 64-Bit Server VM 1.8.0_111-8u111-b14-3~14.04.1-b14. 
+INFO  17:47:58,820 HelpFormatter - Date/Time: 2017/03/15 17:47:58 
+INFO  17:47:58,820 HelpFormatter - -------------------------------------------------------------------------------- 
+INFO  17:47:58,821 HelpFormatter - -------------------------------------------------------------------------------- 
+INFO  17:47:58,855 GenomeAnalysisEngine - Strictness is SILENT 
+INFO  17:47:59,061 GenomeAnalysisEngine - Downsampling Settings: Method: BY_SAMPLE, Target Coverage: 1000 
+INFO  17:47:59,328 GenomeAnalysisEngine - Preparing for traversal 
+INFO  17:47:59,346 GenomeAnalysisEngine - Done preparing for traversal 
+INFO  17:47:59,349 ProgressMeter - [INITIALIZATION COMPLETE; STARTING PROCESSING] 
+INFO  17:47:59,350 ProgressMeter -                 | processed |    time |    per 1M |           |   total | remaining 
+INFO  17:47:59,352 ProgressMeter -        Location |     sites | elapsed |     sites | completed | runtime |   runtime 
+INFO  17:48:00,602 ProgressMeter -            done       673.0     1.0 s      31.0 m       77.3%     1.0 s       0.0 s 
+INFO  17:48:00,603 ProgressMeter - Total runtime 1.26 secs, 0.02 min, 0.00 hours 
+------------------------------------------------------------------------------------------
+Done. There were no warn messages.
+------------------------------------------------------------------------------------------
+00:00:00	SnpEff version SnpEff 4.3i (build 2016-12-15 22:33), by Pablo Cingolani
+00:00:00	Command: 'ann'
+00:00:00	Reading configuration file 'snpEff.config'. Genome: 'GRCh38.86'
+00:00:00	Reading config file: /data/work/snpEff.config
+00:00:00	Reading config file: /root/snpEff/snpEff.config
+00:00:01	done
+00:00:01	Reading database for genome version 'GRCh38.86' from file '/root/snpEff/./data/GRCh38.86/snpEffectPredictor.bin' (this might take a while)
+00:00:31	done
+00:00:31	Reading NextProt database from file '/root/snpEff/./data/GRCh38.86/nextProt.bin'
+00:00:35	NextProt database: 652574 markers loaded.
+00:00:35	Adding transcript info to NextProt markers.
+00:00:35	NextProt database: 652574 markers added.
+00:00:35	Loading PWMs from : /root/snpEff/./data/GRCh38.86/pwms.bin
+00:00:35	Loading Motifs from file '/root/snpEff/./data/GRCh38.86/motif.bin'
+00:00:37		Motif database: 511011 markers loaded.
+00:00:37	Loading interactions from : /root/snpEff/./data/GRCh38.86/interactions.bin
+00:00:54		Interactions: 1793688 added, 0 skipped.
+00:00:54	Building interval forest
+00:01:14	done.
+00:01:14	Genome stats :
+#-----------------------------------------------
+# Genome name                : 'Homo_sapiens'
+# Genome version             : 'GRCh38.86'
+# Genome ID                  : 'GRCh38.86[0]'
+# Has protein coding info    : true
+# Has Tr. Support Level info : true
+# Genes                      : 58051
+# Protein coding genes       : 20423
+#-----------------------------------------------
+# Transcripts                : 198002
+# Avg. transcripts per gene  : 3.41
+# TSL transcripts            : 166906
+#-----------------------------------------------
+# Checked transcripts        : 
+#               AA sequences :      0 ( 0.00% )
+#              DNA sequences : 163038 ( 82.34% )
+#-----------------------------------------------
+# Protein coding transcripts : 94384
+#              Length errors :  13357 ( 14.15% )
+#  STOP codons in CDS errors :     51 ( 0.05% )
+#         START codon errors :  11250 ( 11.92% )
+#        STOP codon warnings :   7169 ( 7.60% )
+#              UTR sequences :  91549 ( 46.24% )
+#               Total Errors :  23099 ( 24.47% )
+#-----------------------------------------------
+# Cds                        : 704604
+# Exons                      : 1182163
+# Exons with sequence        : 1182163
+# Exons without sequence     : 0
+# Avg. exons per transcript  : 5.97
+# WARNING!                   : Mitochondrion chromosome 'MT' does not have a mitochondrion codon table (codon table = 'Standard'). You should update the config file.
+#-----------------------------------------------
+# Number of chromosomes      : 524
+# Chromosomes                : Format 'chromo_name size codon_table'
+#		'HSCHR1_2_CTG3'	248975002	Standard
+#		'HSCHR1_1_CTG31'	248973653	Standard
+#		'HSCHR1_2_CTG31'	248971826	Standard
+#		'HSCHR1_1_CTG3'	248968406	Standard
+#		'HSCHR1_3_CTG31'	248967909	Standard
+#		'HSCHR1_4_CTG3'	248963886	Standard
+#		'HSCHR1_2_CTG32_1'	248962488	Standard
+#		'HSCHR1_3_CTG3'	248961700	Standard
+#		'HSCHR1_1_CTG11'	248961539	Standard
+#		'HSCHR1_3_CTG32_1'	248960761	Standard
+#		'HSCHR1_5_CTG32_1'	248960213	Standard
+#		'HSCHR1_1_CTG32_1'	248960143	Standard
+#		'HG1832_PATCH'	248959779	Standard
+#		'HG2095_PATCH'	248959131	Standard
+#		'HSCHR1_ALT2_1_CTG32_1'	248958866	Standard
+#		'HSCHR1_4_CTG32_1'	248958766	Standard
+#		'HG2104_PATCH'	248958259	Standard
+#		'HG986_PATCH'	248956639	Standard
+#		'1'	248956422	Standard
+#		'HG2058_PATCH'	248956422	Standard
+#		'HSCHR1_4_CTG31'	248955631	Standard
+#		'HG1342_HG2282_PATCH'	248929249	Standard
+#		'HSCHR1_5_CTG3'	248926662	Standard
+#		'HG2290_PATCH'	242235269	Standard
+#		'HSCHR2_2_CTG7'	242223512	Standard
+#		'HSCHR2_1_CTG7_2'	242210518	Standard
+#		'HSCHR2_5_CTG7_2'	242199685	Standard
+#		'HSCHR2_2_CTG7_2'	242199609	Standard
+#		'HSCHR2_1_CTG5'	242199562	Standard
+#		'HSCHR2_1_CTG15'	242198904	Standard
+#		'HSCHR2_2_CTG15'	242198544	Standard
+#		'HSCHR2_2_CTG1'	242198346	Standard
+#		'HSCHR2_6_CTG7_2'	242198149	Standard
+#		'HSCHR2_4_CTG7_2'	242196589	Standard
+#		'HSCHR2_3_CTG1'	242195626	Standard
+#		'HSCHR2_1_CTG1'	242194896	Standard
+#		'HSCHR2_3_CTG7_2'	242194557	Standard
+#		'HSCHR2_3_CTG15'	242194292	Standard
+#		'HSCHR2_1_CTG7'	242193540	Standard
+#		'HG2233_PATCH'	242193535	Standard
+#		'2'	242193529	Standard
+#		'HG2232_PATCH'	242193529	Standard
+#		'HSCHR2_4_CTG1'	242191076	Standard
+#		'HSCHR3_1_CTG2_1'	198306097	Standard
+#		'HSCHR3_1_CTG3'	198302882	Standard
+#		'HSCHR3_4_CTG2_1'	198301383	Standard
+#		'HSCHR3_5_CTG2_1'	198300594	Standard
+#		'HSCHR3_3_CTG2_1'	198300421	Standard
+#		'HSCHR3_3_CTG1'	198300110	Standard
+#		'HSCHR3_2_CTG2_1'	198298736	Standard
+#		'HSCHR3_1_CTG1'	198297480	Standard
+#		'HSCHR3_2_CTG3'	198296961	Standard
+#		'HSCHR3_4_CTG3'	198296867	Standard
+#		'HG2022_PATCH'	198295941	Standard
+#		'HSCHR3_8_CTG3'	198295934	Standard
+#		'HG126_PATCH'	198295908	Standard
+#		'HG2235_PATCH'	198295655	Standard
+#		'3'	198295559	Standard
+#		'HG2066_PATCH'	198295555	Standard
+#		'HSCHR3_6_CTG3'	198294921	Standard
+#		'HSCHR3_7_CTG3'	198294497	Standard
+#		'HSCHR3_5_CTG3'	198293785	Standard
+#		'HSCHR3_3_CTG3'	198293223	Standard
+#		'HSCHR3_9_CTG3'	198291952	Standard
+#		'HG2237_PATCH'	198290329	Standard
+#		'HSCHR4_11_CTG12'	190233769	Standard
+#		'HSCHR4_1_CTG12'	190227204	Standard
+#		'HSCHR4_7_CTG12'	190225141	Standard
+#		'HSCHR4_1_CTG6'	190224838	Standard
+#		'HSCHR4_1_CTG4'	190221757	Standard
+#		'HSCHR4_4_CTG12'	190220704	Standard
+#		'HSCHR4_5_CTG12'	190219562	Standard
+#		'HSCHR4_9_CTG12'	190219005	Standard
+#		'HSCHR4_1_CTG8_1'	190218838	Standard
+#		'HSCHR4_6_CTG12'	190218533	Standard
+#		'HSCHR4_8_CTG12'	190218480	Standard
+#		'HSCHR4_3_CTG12'	190218028	Standard
+#		'HSCHR4_2_CTG4'	190217898	Standard
+#		'4'	190214555	Standard
+#		'HSCHR4_2_CTG12'	190206797	Standard
+#		'HG2023_PATCH'	190147504	Standard
+#		'HSCHR4_1_CTG9'	190096932	Standard
+#		'HSCHR5_1_CTG1'	181558402	Standard
+#		'HSCHR5_3_CTG1_1'	181554865	Standard
+#		'HSCHR5_2_CTG1'	181547139	Standard
+#		'HSCHR5_4_CTG1_1'	181546281	Standard
+#		'HSCHR5_7_CTG1'	181544732	Standard
+#		'HSCHR5_1_CTG5'	181543736	Standard
+#		'HSCHR5_3_CTG1'	181542495	Standard
+#		'HSCHR5_2_CTG5'	181542206	Standard
+#		'HSCHR5_6_CTG1'	181540245	Standard
+#		'HSCHR5_5_CTG1'	181539933	Standard
+#		'HSCHR5_3_CTG5'	181538569	Standard
+#		'5'	181538259	Standard
+#		'HSCHR5_4_CTG1'	181537434	Standard
+#		'HSCHR5_1_CTG1_1'	180863570	Standard
+#		'HSCHR5_2_CTG1_1'	180753562	Standard
+#		'HSCHR6_MHC_MCF_CTG1'	170976334	Standard
+#		'HSCHR6_MHC_MANN_CTG1'	170959829	Standard
+#		'HSCHR6_MHC_SSTO_CTG1'	170946136	Standard
+#		'HSCHR6_MHC_APD_CTG1'	170845044	Standard
+#		'HSCHR6_1_CTG3'	170836231	Standard
+#		'HSCHR6_1_CTG2'	170833811	Standard
+#		'HSCHR6_1_CTG6'	170818797	Standard
+#		'HG2072_PATCH'	170816182	Standard
+#		'HSCHR6_1_CTG9'	170815583	Standard
+#		'HSCHR6_1_CTG5'	170815302	Standard
+#		'HSCHR6_8_CTG1'	170813052	Standard
+#		'HSCHR6_1_CTG7'	170812567	Standard
+#		'HG2128_PATCH'	170811684	Standard
+#		'HSCHR6_1_CTG10'	170810830	Standard
+#		'HSCHR6_1_CTG8'	170810115	Standard
+#		'HSCHR6_1_CTG4'	170808607	Standard
+#		'6'	170805979	Standard
+#		'HSCHR6_MHC_DBB_CTG1'	170783898	Standard
+#		'HG1651_PATCH'	170779650	Standard
+#		'HSCHR6_MHC_QBL_CTG1'	170734801	Standard
+#		'HSCHR6_MHC_COX_CTG1'	170727598	Standard
+#		'HSCHR7_2_CTG6'	159407160	Standard
+#		'HSCHR7_1_CTG6'	159351981	Standard
+#		'HSCHR7_2_CTG7'	159349352	Standard
+#		'HSCHR7_1_CTG1'	159349278	Standard
+#		'HSCHR7_1_CTG4_4'	159348604	Standard
+#		'HSCHR7_2_CTG1'	159348294	Standard
+#		'HSCHR7_1_CTG7'	159346281	Standard
+#		'7'	159345973	Standard
+#		'HG2239_PATCH'	159345319	Standard
+#		'HSCHR7_3_CTG6'	159344441	Standard
+#		'HSCHR7_2_CTG4_4'	159333789	Standard
+#		'HSCHRX_2_CTG12'	156053172	Standard
+#		'HSCHRX_1_CTG3'	156043585	Standard
+#		'X'	156040895	Standard
+#		'HSCHRX_2_CTG3'	156039875	Standard
+#		'HSCHR8_1_CTG6'	145150400	Standard
+#		'HSCHR8_5_CTG7'	145144538	Standard
+#		'HSCHR8_4_CTG7'	145143933	Standard
+#		'HSCHR8_1_CTG7'	145142033	Standard
+#		'HSCHR8_2_CTG7'	145141868	Standard
+#		'HSCHR8_6_CTG7'	145141837	Standard
+#		'HSCHR8_2_CTG1'	145141567	Standard
+#		'HSCHR8_4_CTG1'	145141010	Standard
+#		'8'	145138636	Standard
+#		'HSCHR8_7_CTG1'	145138198	Standard
+#		'HSCHR8_5_CTG1'	145137619	Standard
+#		'HSCHR8_6_CTG1'	145136257	Standard
+#		'HSCHR8_3_CTG1'	145130612	Standard
+#		'HSCHR8_3_CTG7'	145125643	Standard
+#		'HSCHR8_1_CTG1'	145124952	Standard
+#		'HSCHR8_8_CTG1'	145123326	Standard
+#		'HSCHR8_9_CTG1'	144983589	Standard
+#		'HSCHR9_1_CTG1'	138409529	Standard
+#		'HSCHR9_1_CTG4'	138405815	Standard
+#		'HSCHR9_1_CTG5'	138404305	Standard
+#		'HSCHR9_1_CTG2'	138402913	Standard
+#		'HSCHR9_1_CTG3'	138400797	Standard
+#		'HSCHR9_1_CTG6'	138399532	Standard
+#		'HSCHR9_1_CTG7'	138399111	Standard
+#		'HG2030_PATCH'	138394865	Standard
+#		'9'	138394717	Standard
+#		'HG151_NOVEL_TEST'	135097696	Standard
+#		'HSCHR11_1_CTG5'	135097255	Standard
+#		'HSCHR11_1_CTG1_2'	135096748	Standard
+#		'HG142_HG150_NOVEL_TEST'	135094228	Standard
+#		'HSCHR11_2_CTG1'	135093444	Standard
+#		'HSCHR11_1_CTG1_1'	135092355	Standard
+#		'HSCHR11_1_CTG6'	135092332	Standard
+#		'HSCHR11_3_CTG1'	135092180	Standard
+#		'HG2116_PATCH'	135090698	Standard
+#		'HSCHR11_1_CTG3'	135090275	Standard
+#		'HG107_PATCH'	135088590	Standard
+#		'HSCHR11_1_CTG8'	135088433	Standard
+#		'11'	135086622	Standard
+#		'HG2217_PATCH'	135086621	Standard
+#		'HSCHR11_1_CTG7'	135085484	Standard
+#		'HSCHR11_2_CTG1_1'	135083841	Standard
+#		'HSCHR11_1_CTG2'	135083598	Standard
+#		'HSCHR10_1_CTG1'	133844722	Standard
+#		'HSCHR10_1_CTG4'	133815819	Standard
+#		'HSCHR10_1_CTG2'	133813485	Standard
+#		'HSCHR10_1_CTG6'	133801239	Standard
+#		'HG2191_PATCH'	133799479	Standard
+#		'HG2244_HG2245_PATCH'	133797425	Standard
+#		'10'	133797422	Standard
+#		'HG2334_PATCH'	133797389	Standard
+#		'HG2242_HG2243_PATCH'	133797297	Standard
+#		'HG2241_PATCH'	133792722	Standard
+#		'HSCHR10_1_CTG3'	133783218	Standard
+#		'HSCHR12_2_CTG2'	133307257	Standard
+#		'HSCHR12_7_CTG2_1'	133289478	Standard
+#		'HSCHR12_1_CTG2_1'	133284468	Standard
+#		'HSCHR12_2_CTG2_1'	133282358	Standard
+#		'HSCHR12_2_CTG1'	133282237	Standard
+#		'HSCHR12_3_CTG2_1'	133281486	Standard
+#		'HSCHR12_1_CTG2'	133281368	Standard
+#		'HSCHR12_4_CTG2_1'	133281351	Standard
+#		'HSCHR12_5_CTG2_1'	133279478	Standard
+#		'HSCHR12_1_CTG1'	133279324	Standard
+#		'HSCHR12_4_CTG2'	133277582	Standard
+#		'HSCHR12_6_CTG2_1'	133275361	Standard
+#		'HG1362_PATCH'	133275314	Standard
+#		'12'	133275309	Standard
+#		'HSCHR12_5_CTG2'	133275237	Standard
+#		'HG23_PATCH'	133275184	Standard
+#		'HG2063_PATCH'	133275140	Standard
+#		'HG2247_PATCH'	133274000	Standard
+#		'HSCHR12_3_CTG2'	133271566	Standard
+#		'HG2291_PATCH'	114534236	Standard
+#		'HG2216_PATCH'	114376428	Standard
+#		'HSCHR13_1_CTG7'	114374491	Standard
+#		'HSCHR13_1_CTG3'	114370226	Standard
+#		'HSCHR13_1_CTG8'	114368996	Standard
+#		'HSCHR13_1_CTG4'	114368332	Standard
+#		'HSCHR13_1_CTG2'	114368315	Standard
+#		'HSCHR13_1_CTG6'	114367169	Standard
+#		'HSCHR13_1_CTG5'	114365350	Standard
+#		'13'	114364328	Standard
+#		'HG2249_PATCH'	114364211	Standard
+#		'HG2288_HG2289_PATCH'	114360394	Standard
+#		'HSCHR13_1_CTG1'	114348172	Standard
+#		'HSCHR14_3_CTG1'	107067894	Standard
+#		'HSCHR14_2_CTG1'	107050862	Standard
+#		'HSCHR14_1_CTG1'	107047377	Standard
+#		'HSCHR14_7_CTG1'	107045728	Standard
+#		'14'	107043718	Standard
+#		'HSCHR15_4_CTG8'	102071387	Standard
+#		'HSCHR15_5_CTG8'	102070278	Standard
+#		'HSCHR15_2_CTG8'	102003326	Standard
+#		'HSCHR15_1_CTG8'	102002809	Standard
+#		'HSCHR15_3_CTG8'	101999716	Standard
+#		'HSCHR15_1_CTG1'	101998275	Standard
+#		'HSCHR15_2_CTG3'	101995966	Standard
+#		'HSCHR15_1_CTG3'	101994657	Standard
+#		'HSCHR15_3_CTG3'	101993763	Standard
+#		'15'	101991189	Standard
+#		'HSCHR15_6_CTG8'	101521929	Standard
+#		'HSCHR16_1_CTG1'	90426449	Standard
+#		'HSCHR16_3_CTG3_1'	90346170	Standard
+#		'HSCHR16_5_CTG1'	90344275	Standard
+#		'HSCHR16_2_CTG3_1'	90343477	Standard
+#		'HSCHR16_4_CTG3_1'	90343133	Standard
+#		'HSCHR16_CTG2'	90341867	Standard
+#		'HSCHR16_4_CTG1'	90340369	Standard
+#		'HSCHR16_3_CTG1'	90340304	Standard
+#		'16'	90338345	Standard
+#		'HSCHR16_1_CTG3_1'	90335239	Standard
+#		'HSCHR17_1_CTG5'	83552665	Standard
+#		'HSCHR17_10_CTG4'	83359087	Standard
+#		'HSCHR17_1_CTG1'	83290495	Standard
+#		'HSCHR17_3_CTG4'	83269063	Standard
+#		'HSCHR17_1_CTG4'	83264766	Standard
+#		'HSCHR17_9_CTG4'	83263791	Standard
+#		'HSCHR17_2_CTG4'	83263494	Standard
+#		'HSCHR17_2_CTG1'	83259496	Standard
+#		'HSCHR17_8_CTG4'	83258474	Standard
+#		'HSCHR17_3_CTG2'	83258211	Standard
+#		'HSCHR17_4_CTG4'	83257896	Standard
+#		'17'	83257441	Standard
+#		'HSCHR17_1_CTG2'	83256362	Standard
+#		'HSCHR17_1_CTG9'	83255504	Standard
+#		'HSCHR17_5_CTG4'	83247119	Standard
+#		'HSCHR17_6_CTG4'	83246071	Standard
+#		'HSCHR17_2_CTG2'	83160220	Standard
+#		'HSCHR17_2_CTG5'	83086355	Standard
+#		'HSCHR17_7_CTG4'	83058228	Standard
+#		'HSCHR18_2_CTG2'	80442734	Standard
+#		'HSCHR18_1_CTG2'	80386177	Standard
+#		'HSCHR18_1_CTG2_1'	80382671	Standard
+#		'HSCHR18_1_CTG1_1'	80380517	Standard
+#		'HSCHR18_2_CTG1_1'	80379367	Standard
+#		'HSCHR18_3_CTG2_1'	80379039	Standard
+#		'HSCHR18_5_CTG1_1'	80378965	Standard
+#		'HSCHR18_2_CTG2_1'	80378720	Standard
+#		'HSCHR18_4_CTG1_1'	80378406	Standard
+#		'HG2213_PATCH'	80377536	Standard
+#		'HSCHR18_ALT2_CTG2_1'	80376883	Standard
+#		'HSCHR18_ALT21_CTG2_1'	80376343	Standard
+#		'18'	80373285	Standard
+#		'HSCHR20_1_CTG1'	64450183	Standard
+#		'HSCHR20_1_CTG3'	64447812	Standard
+#		'HSCHR20_1_CTG4'	64446453	Standard
+#		'20'	64444167	Standard
+#		'HSCHR20_1_CTG2'	64441059	Standard
+#		'HSCHR19KIR_FH15_B_HAP_CTG3_1'	58689284	Standard
+#		'HSCHR19KIR_FH05_B_HAP_CTG3_1'	58689016	Standard
+#		'HSCHR19KIR_FH13_BA2_HAP_CTG3_1'	58662330	Standard
+#		'HSCHR19KIR_RSH_BA2_HAP_CTG3_1'	58662237	Standard
+#		'HSCHR19KIR_G248_BA2_HAP_CTG3_1'	58661364	Standard
+#		'HSCHR19LRC_LRC_J_CTG3_1'	58650772	Standard
+#		'HSCHR19KIR_FH08_BAX_HAP_CTG3_1'	58647709	Standard
+#		'HSCHR19KIR_GRC212_AB_HAP_CTG3_1'	58644315	Standard
+#		'HG2021_PATCH'	58632883	Standard
+#		'HSCHR19KIR_LUCE_BDEL_HAP_CTG3_1'	58631446	Standard
+#		'HSCHR19KIR_RP5_B_HAP_CTG3_1'	58631402	Standard
+#		'HSCHR19KIR_T7526_BDEL_HAP_CTG3_1'	58631206	Standard
+#		'HSCHR19_2_CTG2'	58627095	Standard
+#		'HSCHR19_3_CTG3_1'	58625958	Standard
+#		'HSCHR19_3_CTG2'	58625823	Standard
+#		'HSCHR19_4_CTG3_1'	58625731	Standard
+#		'HSCHR19LRC_LRC_S_CTG3_1'	58625321	Standard
+#		'HSCHR19_1_CTG3_1'	58624789	Standard
+#		'HSCHR19_1_CTG2'	58624032	Standard
+#		'HSCHR19LRC_LRC_I_CTG3_1'	58623235	Standard
+#		'HSCHR19_4_CTG2'	58619803	Standard
+#		'HSCHR19_5_CTG2'	58619095	Standard
+#		'HSCHR19_2_CTG3_1'	58618601	Standard
+#		'HSCHR19KIR_ABC08_AB_HAP_C_P_CTG3_1'	58618008	Standard
+#		'HSCHR19KIR_FH08_A_HAP_CTG3_1'	58617658	Standard
+#		'HG26_PATCH'	58617652	Standard
+#		'HSCHR19KIR_G248_A_HAP_CTG3_1'	58617652	Standard
+#		'HSCHR19KIR_ABC08_AB_HAP_T_P_CTG3_1'	58617636	Standard
+#		'HSCHR19KIR_LUCE_A_HAP_CTG3_1'	58617634	Standard
+#		'HSCHR19KIR_ABC08_A1_HAP_CTG3_1'	58617625	Standard
+#		'19'	58617616	Standard
+#		'HSCHR19KIR_RSH_A_HAP_CTG3_1'	58617616	Standard
+#		'HSCHR19KIR_G085_A_HAP_CTG3_1'	58617601	Standard
+#		'HSCHR19KIR_T7526_A_HAP_CTG3_1'	58617601	Standard
+#		'HSCHR19KIR_FH06_A_HAP_CTG3_1'	58617587	Standard
+#		'HSCHR19KIR_FH15_A_HAP_CTG3_1'	58617473	Standard
+#		'HSCHR19KIR_FH05_A_HAP_CTG3_1'	58616795	Standard
+#		'HSCHR19KIR_FH13_A_HAP_CTG3_1'	58616725	Standard
+#		'HSCHR19KIR_FH06_BA1_HAP_CTG3_1'	58603994	Standard
+#		'HSCHR19KIR_G085_BA1_HAP_CTG3_1'	58603800	Standard
+#		'HSCHR19KIR_GRC212_BA1_HAP_CTG3_1'	58602595	Standard
+#		'HSCHR19LRC_LRC_T_CTG3_1'	58561614	Standard
+#		'HSCHR19LRC_COX1_CTG3_1'	58546647	Standard
+#		'HSCHR19LRC_PGF1_CTG3_1'	58546031	Standard
+#		'HSCHR19LRC_PGF2_CTG3_1'	58355410	Standard
+#		'HSCHR19LRC_COX2_CTG3_1'	58288451	Standard
+#		'HG2062_PATCH'	57262172	Standard
+#		'Y'	57227415	Standard
+#		'HSCHR22_1_CTG7'	50872732	Standard
+#		'HSCHR22_7_CTG1'	50845852	Standard
+#		'HSCHR22_1_CTG6'	50842710	Standard
+#		'HSCHR22_5_CTG1'	50832153	Standard
+#		'HSCHR22_8_CTG1'	50832130	Standard
+#		'HSCHR22_2_CTG1'	50830603	Standard
+#		'HSCHR22_1_CTG3'	50827573	Standard
+#		'HSCHR22_1_CTG4'	50824699	Standard
+#		'HSCHR22_1_CTG5'	50821308	Standard
+#		'HG1311_PATCH'	50818486	Standard
+#		'22'	50818468	Standard
+#		'HSCHR22_3_CTG1'	50818468	Standard
+#		'HSCHR22_6_CTG1'	50815919	Standard
+#		'HSCHR22_1_CTG1'	50806372	Standard
+#		'HSCHR22_4_CTG1'	50806321	Standard
+#		'HSCHR22_1_CTG2'	50788525	Standard
+#		'HSCHR21_1_CTG1_1'	46722569	Standard
+#		'HSCHR21_4_CTG1_1'	46719541	Standard
+#		'HSCHR21_2_CTG1_1'	46716685	Standard
+#		'HSCHR21_3_CTG1_1'	46715777	Standard
+#		'HSCHR21_6_CTG1_1'	46713516	Standard
+#		'HSCHR21_8_CTG1_1'	46713185	Standard
+#		'HSCHR21_5_CTG2'	46712294	Standard
+#		'21'	46709983	Standard
+#		'KI270728.1'	1872759	Standard
+#		'KI270727.1'	448248	Standard
+#		'KI270442.1'	392061	Standard
+#		'KI270729.1'	280839	Standard
+#		'GL000225.1'	211173	Standard
+#		'KI270743.1'	210658	Standard
+#		'GL000008.2'	209709	Standard
+#		'GL000009.2'	201709	Standard
+#		'KI270747.1'	198735	Standard
+#		'KI270722.1'	194050	Standard
+#		'GL000194.1'	191469	Standard
+#		'KI270742.1'	186739	Standard
+#		'GL000205.2'	185591	Standard
+#		'GL000195.1'	182896	Standard
+#		'KI270736.1'	181920	Standard
+#		'KI270733.1'	179772	Standard
+#		'GL000224.1'	179693	Standard
+#		'GL000219.1'	179198	Standard
+#		'KI270719.1'	176845	Standard
+#		'GL000216.2'	176608	Standard
+#		'KI270712.1'	176043	Standard
+#		'KI270706.1'	175055	Standard
+#		'KI270725.1'	172810	Standard
+#		'KI270744.1'	168472	Standard
+#		'KI270734.1'	165050	Standard
+#		'GL000213.1'	164239	Standard
+#		'GL000220.1'	161802	Standard
+#		'KI270715.1'	161471	Standard
+#		'GL000218.1'	161147	Standard
+#		'KI270749.1'	158759	Standard
+#		'KI270741.1'	157432	Standard
+#		'GL000221.1'	155397	Standard
+#		'KI270716.1'	153799	Standard
+#		'KI270731.1'	150754	Standard
+#		'KI270751.1'	150742	Standard
+#		'KI270750.1'	148850	Standard
+#		'KI270519.1'	138126	Standard
+#		'GL000214.1'	137718	Standard
+#		'KI270708.1'	127682	Standard
+#		'KI270730.1'	112551	Standard
+#		'KI270438.1'	112505	Standard
+#		'KI270737.1'	103838	Standard
+#		'KI270721.1'	100316	Standard
+#		'KI270738.1'	99375	Standard
+#		'KI270748.1'	93321	Standard
+#		'KI270435.1'	92983	Standard
+#		'GL000208.1'	92689	Standard
+#		'KI270538.1'	91309	Standard
+#		'KI270756.1'	79590	Standard
+#		'KI270739.1'	73985	Standard
+#		'KI270757.1'	71251	Standard
+#		'KI270709.1'	66860	Standard
+#		'KI270746.1'	66486	Standard
+#		'KI270753.1'	62944	Standard
+#		'KI270589.1'	44474	Standard
+#		'KI270726.1'	43739	Standard
+#		'KI270735.1'	42811	Standard
+#		'KI270711.1'	42210	Standard
+#		'KI270745.1'	41891	Standard
+#		'KI270714.1'	41717	Standard
+#		'KI270732.1'	41543	Standard
+#		'KI270713.1'	40745	Standard
+#		'KI270754.1'	40191	Standard
+#		'KI270710.1'	40176	Standard
+#		'KI270717.1'	40062	Standard
+#		'KI270724.1'	39555	Standard
+#		'KI270720.1'	39050	Standard
+#		'KI270723.1'	38115	Standard
+#		'KI270718.1'	38054	Standard
+#		'KI270317.1'	37690	Standard
+#		'KI270740.1'	37240	Standard
+#		'KI270755.1'	36723	Standard
+#		'KI270707.1'	32032	Standard
+#		'KI270579.1'	31033	Standard
+#		'KI270752.1'	27745	Standard
+#		'KI270512.1'	22689	Standard
+#		'KI270322.1'	21476	Standard
+#		'MT'	16569	Standard
+#		'GL000226.1'	15008	Standard
+#		'KI270311.1'	12399	Standard
+#		'KI270366.1'	8320	Standard
+#		'KI270511.1'	8127	Standard
+#		'KI270448.1'	7992	Standard
+#		'KI270521.1'	7642	Standard
+#		'KI270581.1'	7046	Standard
+#		'KI270582.1'	6504	Standard
+#		'KI270515.1'	6361	Standard
+#		'KI270588.1'	6158	Standard
+#		'KI270591.1'	5796	Standard
+#		'KI270522.1'	5674	Standard
+#		'KI270507.1'	5353	Standard
+#		'KI270590.1'	4685	Standard
+#		'KI270584.1'	4513	Standard
+#		'KI270320.1'	4416	Standard
+#		'KI270382.1'	4215	Standard
+#		'KI270468.1'	4055	Standard
+#		'KI270467.1'	3920	Standard
+#		'KI270362.1'	3530	Standard
+#		'KI270517.1'	3253	Standard
+#		'KI270593.1'	3041	Standard
+#		'KI270528.1'	2983	Standard
+#		'KI270587.1'	2969	Standard
+#		'KI270364.1'	2855	Standard
+#		'KI270371.1'	2805	Standard
+#		'KI270333.1'	2699	Standard
+#		'KI270374.1'	2656	Standard
+#		'KI270411.1'	2646	Standard
+#		'KI270414.1'	2489	Standard
+#		'KI270510.1'	2415	Standard
+#		'KI270390.1'	2387	Standard
+#		'KI270375.1'	2378	Standard
+#		'KI270420.1'	2321	Standard
+#		'KI270509.1'	2318	Standard
+#		'KI270315.1'	2276	Standard
+#		'KI270302.1'	2274	Standard
+#		'KI270518.1'	2186	Standard
+#		'KI270530.1'	2168	Standard
+#		'KI270304.1'	2165	Standard
+#		'KI270418.1'	2145	Standard
+#		'KI270424.1'	2140	Standard
+#		'KI270417.1'	2043	Standard
+#		'KI270508.1'	1951	Standard
+#		'KI270303.1'	1942	Standard
+#		'KI270381.1'	1930	Standard
+#		'KI270529.1'	1899	Standard
+#		'KI270425.1'	1884	Standard
+#		'KI270396.1'	1880	Standard
+#		'KI270363.1'	1803	Standard
+#		'KI270386.1'	1788	Standard
+#		'KI270465.1'	1774	Standard
+#		'KI270383.1'	1750	Standard
+#		'KI270384.1'	1658	Standard
+#		'KI270330.1'	1652	Standard
+#		'KI270372.1'	1650	Standard
+#		'KI270548.1'	1599	Standard
+#		'KI270580.1'	1553	Standard
+#		'KI270387.1'	1537	Standard
+#		'KI270391.1'	1484	Standard
+#		'KI270305.1'	1472	Standard
+#		'KI270373.1'	1451	Standard
+#		'KI270422.1'	1445	Standard
+#		'KI270316.1'	1444	Standard
+#		'KI270338.1'	1428	Standard
+#		'KI270340.1'	1428	Standard
+#		'KI270583.1'	1400	Standard
+#		'KI270334.1'	1368	Standard
+#		'KI270429.1'	1361	Standard
+#		'KI270393.1'	1308	Standard
+#		'KI270516.1'	1300	Standard
+#		'KI270389.1'	1298	Standard
+#		'KI270466.1'	1233	Standard
+#		'KI270388.1'	1216	Standard
+#		'KI270544.1'	1202	Standard
+#		'KI270310.1'	1201	Standard
+#		'KI270412.1'	1179	Standard
+#		'KI270395.1'	1143	Standard
+#		'KI270376.1'	1136	Standard
+#		'KI270337.1'	1121	Standard
+#		'KI270335.1'	1048	Standard
+#		'KI270378.1'	1048	Standard
+#		'KI270379.1'	1045	Standard
+#		'KI270329.1'	1040	Standard
+#		'KI270419.1'	1029	Standard
+#		'KI270336.1'	1026	Standard
+#		'KI270312.1'	998	Standard
+#		'KI270539.1'	993	Standard
+#		'KI270385.1'	990	Standard
+#		'KI270423.1'	981	Standard
+#		'KI270392.1'	971	Standard
+#		'KI270394.1'	970	Standard
+#-----------------------------------------------
+
+00:01:25	Predicting variants
+00:01:25	Loading sequences for chromosome '15' from file '/root/snpEff/./data/GRCh38.86/sequence.15.bin'
+00:01:28	Building sequence tree for chromosome '15'
+00:01:28	Done. Loaded 1001 sequences.
+
+WARNINGS: Some warning were detected
+Warning type	Number of warnings
+INFO_REALIGN_3_PRIME	340
+WARNING_TRANSCRIPT_INCOMPLETE	370
+WARNING_TRANSCRIPT_INCOMPLETE&INFO_REALIGN_3_PRIME	64
+WARNING_TRANSCRIPT_NO_START_CODON	31
+WARNING_TRANSCRIPT_NO_START_CODON&INFO_REALIGN_3_PRIME	1
+WARNING_TRANSCRIPT_NO_STOP_CODON	1
+
+
+00:01:29	Creating summary file: snpEff_summary.html
+00:01:30	Creating genes file: snpEff_genes.txt
+00:01:30	done.
+00:01:30	Logging
+00:01:31	Checking for updates...
+
+
+NEW VERSION!
+	There is a new SnpEff version available: 
+		Version      : 4.3K
+		Release date : 2017-03-13
+		Download URL : http://sourceforge.net/projects/snpeff/files/snpEff_latest_core.zip
+
+INFO  17:49:37,287 HelpFormatter - -------------------------------------------------------------------------------- 
+INFO  17:49:37,290 HelpFormatter - The Genome Analysis Toolkit (GATK) v3.6-0-g89b7209, Compiled 2016/06/01 22:27:29 
+INFO  17:49:37,291 HelpFormatter - Copyright (c) 2010-2016 The Broad Institute 
+INFO  17:49:37,291 HelpFormatter - For support and documentation go to https://www.broadinstitute.org/gatk 
+INFO  17:49:37,292 HelpFormatter - [Wed Mar 15 17:49:37 UTC 2017] Executing on Linux 4.4.0-47-generic amd64 
+INFO  17:49:37,292 HelpFormatter - OpenJDK 64-Bit Server VM 1.8.0_111-8u111-b14-3~14.04.1-b14 JdkDeflater 
+INFO  17:49:37,303 HelpFormatter - Program Args: -T SelectVariants -R /data/ref/GCA_000001405.15_GRCh38_no_alt_analysis_set.fa -V /data/work/test.split.realigned.HaplotypeCaller.filtered.ann.vcf -o /data/work/test.split.realigned.HaplotypeCaller.filtered.ann.vl.vcf -L /root/hglft_genome_24bb_d53250_variants.bed 
+INFO  17:49:37,308 HelpFormatter - Executing as root@d31eb11c3ddb on Linux 4.4.0-47-generic amd64; OpenJDK 64-Bit Server VM 1.8.0_111-8u111-b14-3~14.04.1-b14. 
+INFO  17:49:37,309 HelpFormatter - Date/Time: 2017/03/15 17:49:37 
+INFO  17:49:37,310 HelpFormatter - -------------------------------------------------------------------------------- 
+INFO  17:49:37,310 HelpFormatter - -------------------------------------------------------------------------------- 
+INFO  17:49:37,346 GenomeAnalysisEngine - Strictness is SILENT 
+INFO  17:49:37,657 GenomeAnalysisEngine - Downsampling Settings: Method: BY_SAMPLE, Target Coverage: 1000 
+INFO  17:49:38,088 RMDTrackBuilder - Writing Tribble index to disk for file /data/work/test.split.realigned.HaplotypeCaller.filtered.ann.vcf.idx 
+INFO  17:49:38,244 IntervalUtils - Processing 190 bp from intervals 
+INFO  17:49:38,347 GenomeAnalysisEngine - Preparing for traversal 
+INFO  17:49:38,350 GenomeAnalysisEngine - Done preparing for traversal 
+INFO  17:49:38,351 ProgressMeter - [INITIALIZATION COMPLETE; STARTING PROCESSING] 
+INFO  17:49:38,352 ProgressMeter -                 | processed |    time |    per 1M |           |   total | remaining 
+INFO  17:49:38,352 ProgressMeter -        Location |     sites | elapsed |     sites | completed | runtime |   runtime 
+INFO  17:49:38,521 SelectVariants - 0 records processed. 
+INFO  17:49:38,529 ProgressMeter -            done         0.0     0.0 s      49.3 h      100.0%     0.0 s       0.0 s 
+INFO  17:49:38,530 ProgressMeter - Total runtime 0.18 secs, 0.00 min, 0.00 hours 
+------------------------------------------------------------------------------------------
+Done. There were no warn messages.
+------------------------------------------------------------------------------------------
+INFO  17:49:41,231 HelpFormatter - -------------------------------------------------------------------------------- 
+INFO  17:49:41,239 HelpFormatter - The Genome Analysis Toolkit (GATK) v3.6-0-g89b7209, Compiled 2016/06/01 22:27:29 
+INFO  17:49:41,239 HelpFormatter - Copyright (c) 2010-2016 The Broad Institute 
+INFO  17:49:41,240 HelpFormatter - For support and documentation go to https://www.broadinstitute.org/gatk 
+INFO  17:49:41,240 HelpFormatter - [Wed Mar 15 17:49:41 UTC 2017] Executing on Linux 4.4.0-47-generic amd64 
+INFO  17:49:41,240 HelpFormatter - OpenJDK 64-Bit Server VM 1.8.0_111-8u111-b14-3~14.04.1-b14 JdkDeflater 
+INFO  17:49:41,246 HelpFormatter - Program Args: -T SelectVariants -R /data/ref/GCA_000001405.15_GRCh38_no_alt_analysis_set.fa -V /data/work/test.split.realigned.HaplotypeCaller.filtered.ann.vcf -o /data/work/test.split.realigned.HaplotypeCaller.filtered.ann.cg.vcf -L /root/cc_genelist.bed 
+INFO  17:49:41,258 HelpFormatter - Executing as root@d31eb11c3ddb on Linux 4.4.0-47-generic amd64; OpenJDK 64-Bit Server VM 1.8.0_111-8u111-b14-3~14.04.1-b14. 
+INFO  17:49:41,259 HelpFormatter - Date/Time: 2017/03/15 17:49:41 
+INFO  17:49:41,259 HelpFormatter - -------------------------------------------------------------------------------- 
+INFO  17:49:41,260 HelpFormatter - -------------------------------------------------------------------------------- 
+INFO  17:49:41,281 GenomeAnalysisEngine - Strictness is SILENT 
+INFO  17:49:41,763 GenomeAnalysisEngine - Downsampling Settings: Method: BY_SAMPLE, Target Coverage: 1000 
+INFO  17:49:41,953 IntervalUtils - Processing 48277196 bp from intervals 
+INFO  17:49:42,061 GenomeAnalysisEngine - Preparing for traversal 
+INFO  17:49:42,066 GenomeAnalysisEngine - Done preparing for traversal 
+INFO  17:49:42,068 ProgressMeter - [INITIALIZATION COMPLETE; STARTING PROCESSING] 
+INFO  17:49:42,069 ProgressMeter -                 | processed |    time |    per 1M |           |   total | remaining 
+INFO  17:49:42,070 ProgressMeter -        Location |     sites | elapsed |     sites | completed | runtime |   runtime 
+INFO  17:49:42,296 SelectVariants - 0 records processed. 
+INFO  17:49:42,313 ProgressMeter -            done         0.0     0.0 s      67.9 h      100.0%     0.0 s       0.0 s 
+INFO  17:49:42,314 ProgressMeter - Total runtime 0.25 secs, 0.00 min, 0.00 hours 
+------------------------------------------------------------------------------------------
+Done. There were no warn messages.
+------------------------------------------------------------------------------------------

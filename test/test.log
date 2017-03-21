@@ -1,0 +1,19 @@
+Wed Mar 15 17:06:18 UTC 2017 Add Read Groups - test.bam
+Wed Mar 15 17:06:27 UTC 2017 Add Read Groups - test.bam - Done
+Wed Mar 15 17:06:27 UTC 2017 SplitNCigarReads - test.bam
+Wed Mar 15 17:06:38 UTC 2017 SplitNCigarReads - test.bam - Done
+Wed Mar 15 17:06:38 UTC 2017 RealignerTargetCreator - test.bam
+Wed Mar 15 17:11:47 UTC 2017 RealignerTargetCreator - test.bam - Done
+Wed Mar 15 17:11:47 UTC 2017 IndelRealigner - test.bam
+Wed Mar 15 17:12:01 UTC 2017 IndelRealigner - test.bam - Done
+Wed Mar 15 17:12:01 UTC 2017 HaplotypeCaller - test.bam
+Wed Mar 15 17:47:56 UTC 2017 HaplotypeCaller - test.bam - Done
+Wed Mar 15 17:47:56 UTC 2017 VariantFiltration - test.bam
+Wed Mar 15 17:48:00 UTC 2017 VariantFiltration - test.bam - Done
+Wed Mar 15 17:48:00 UTC 2017 snpEff - test.bam
+Wed Mar 15 17:49:34 UTC 2017 snpEff - test.bam - Done
+Wed Mar 15 17:49:34 UTC 2017 SelectVariants - variant list - test.bam
+Wed Mar 15 17:49:38 UTC 2017 SelectVariants - variant list - test.bam - Done
+Wed Mar 15 17:49:38 UTC 2017 SelectVariants - gene list - test.bam 
+Wed Mar 15 17:49:42 UTC 2017 SelectVariants - gene list - test.bam - Done 
+Wed Mar 15 17:49:42 UTC 2017 Done - test.bam
