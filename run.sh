@@ -19,7 +19,7 @@ fi
 
 if [ ! -f "${i/.bam}.split.bam.ok" ]; then
 echo `date` "SplitNCigarReads - $input">>/data/work/${i/.bam}.log;
-java -Xmx50000m -jar $tmpdir /root/GenomeAnalysisTK.jar -T SplitNCigarReads -R /data/ref/*.fa -I /data/work/${i/.bam}.readgroups.bam -o /data/work/${i/.bam}.split.bam -rf ReassignOneMappingQuality -RMQF 255 -RMQT 60 -U ALLOW_N_CIGAR_READS;
+java -Xmx50000m -jar $tmpdir /root/GenomeAnalysisTK.jar -T SplitNCigarReads -R /data/ref/$r -I /data/work/${i/.bam}.readgroups.bam -o /data/work/${i/.bam}.split.bam -rf ReassignOneMappingQuality -RMQF 255 -RMQT 60 -U ALLOW_N_CIGAR_READS;
 echo `date` "SplitNCigarReads - $input - Done">>/data/work/${i/.bam}.log;
 >${i/.bam}.split.bam.ok;
 fi
