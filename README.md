@@ -12,7 +12,7 @@ The steps for the workflow are:
 
 ## Usage
     docker pull linhvoyo/gatk rna variant v2
-    docker run -v /path/to/ref_folder:/data/ref \ -v /path/to/input_folder/:/data/work \
+    docker run -it -v /path/to/ref_folder:/data/ref \ -v /path/to/input_folder/:/data/work \
         -e refgenome=input_reference_genome.fa \
         -e input=sample.sorted.bam \
         -e tempdir=" " \
