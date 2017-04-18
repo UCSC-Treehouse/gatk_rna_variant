@@ -15,7 +15,6 @@ The steps for the workflow are:
     docker run -it -v /path/to/ref_folder:/data/ref \ -v /path/to/input_folder/:/data/work \
         -e refgenome=input_reference_genome.fa \
         -e input=sample.sorted.bam \
-        -e tempdir=" " \
         linhvoyo/gatk_rna_variant_v2 | tee >>/path/to/input_folder/out
 
 ## Details
@@ -34,16 +33,13 @@ Provide the name of reference genome.
     -e input=sample.sorted.bam
 Provide the name of the input file. The docker takes in a sorted bam file that was aligned using STAR aligner (https://github.com/alexdobin/STAR).
 
-    -e tempdir=" "
-To set a java temporary directory use -e tempdir=”-Djava.io.tmpdir=/path to temp dir/” option. If you do not want to specify a temporary directory please type in -e tempdir=” ”. It’s mandatory to have this field.
-
 ## Example run command and the expected output
 
 ### Run command
     docker run -it -v /data/ref:/data/ref \
         -v $(pwd):/data/work \
-        -e refgenome=GCA_000001405.15_GRCh38_no_alt_analysis_set.fa \ -e input=test.bam \
-        -e tempdir=" "\
+        -e refgenome=GCA_000001405.15_GRCh38_no_alt_analysis_set.fa \ 
+        -e input=test.bam \
         linhvoyo/gatk_rna_variant_v2 | tee >> test.bam.out
 
 ### Output files
