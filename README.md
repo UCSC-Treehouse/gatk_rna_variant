@@ -11,7 +11,8 @@ The steps for the workflow are:
 * GATK SelectVariants
 
 ## Usage
-    docker pull linhvoyo/gatk rna variant v2
+    docker pull linhvoyo/gatk_rna_variant_v2
+    
     docker run -it -v /path/to/ref_folder:/data/ref \ -v /path/to/input_folder/:/data/work \
         -e refgenome=input_reference_genome.fa \
         -e input=sample.sorted.bam \
