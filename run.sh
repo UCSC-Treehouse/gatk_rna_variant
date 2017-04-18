@@ -82,7 +82,7 @@ fi
 
 if [ ! -f "${i/.bam}.split.realigned.HaplotypeCaller.filtered.ann.vcf.ok" ]; then
 echo `date` "snpEff - $input">>/data/work/${i/.bam}.log;
-java -Xmx10000m -jar $tmpdir /root/snpEff/snpEff.jar -v GRCh38.86 /data/work/${i/.bam}.split.realigned.HaplotypeCaller.filtered.vcf > /data/work/${i/.bam}.split.realigned.HaplotypeCaller.filtered.ann.vcf;
+java -Xmx10000m -jar $tmpdir /root/snpEff/snpEff.jar -v -classic GRCh38.86 /data/work/${i/.bam}.split.realigned.HaplotypeCaller.filtered.vcf > /data/work/${i/.bam}.split.realigned.HaplotypeCaller.filtered.ann.vcf;
 rm snpEff_genes.txt;
 rm snpEff_summary.html;
 echo `date` "snpEff - $input - Done">>/data/work/${i/.bam}.log;
