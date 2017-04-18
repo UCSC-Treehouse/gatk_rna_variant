@@ -1,14 +1,18 @@
 #!/bin/bash
-#v2 implemented  tempdir option. 
+#v2 add tempdir option.
 
+#if [[ $tempdir = *[!\ ]* ]]; then   tmpdir="-Djava.io.tmpdir="$tempdir; else   tmpdir=" "; fi
 set -eu -o pipefail
 
 
 i=$input
 r=$refgenome
-tmpdir=$tempdir
-gl=cc_genelist.bed 
+tmpdir="-Djava.io.tmpdir="/data/work/temp_$input
+gl=cc_genelist.bed
 vl=hglft_genome_24bb_d53250_variants.bed
+
+
+
 
 if [ ! -f "${i/.bam}.readgroups.bam.ok" ]; then
 echo `date` "Add Read Groups - $input">>/data/work/${i/.bam}.log;
@@ -133,4 +137,4 @@ trap finish EXIT
 
 echo `date` "Done (linhvoyo/gatk_variant_v2) - $input">>/data/work/${i/.bam}.log;
 
-rm ${i/.bam}.readgroups.bai ${i/.bam}.readgroups.bam ${i/.bam}.split.bai ${i/.bam}.split.bam ${i/.bam}.split.intervals ${i/.bam}.split.realigned.HaplotypeCaller.vcf ${i/.bam}.split.realigned.HaplotypeCaller.vcf.idx ${i/.bam}.readgroups.bam.ok ${i/.bam}.split.bam.ok ${i/.bam}.split.intervals.ok ${i/.bam}.split.realigned.bam.ok ${i/.bam}.split.realigned.HaplotypeCaller.vcf.ok ${i/.bam}.split.realigned.HaplotypeCaller.filtered.vcf.ok ${i/.bam}.split.realigned.HaplotypeCaller.filtered.ann.vl.vcf.ok ${i/.bam}.split.realigned.HaplotypeCaller.filtered.ann.cg.vcf.ok ${i/.bam}.split.realigned.HaplotypeCaller.filtered.ann.vcf.ok ${i/.bam}.split.realigned.HaplotypeCaller.filtered.vcf ${i/.bam}.split.realigned.HaplotypeCaller.filtered.vcf.idx 
+rm ${i/.bam}.readgroups.bai ${i/.bam}.readgroups.bam ${i/.bam}.split.bai ${i/.bam}.split.bam ${i/.bam}.split.intervals ${i/.bam}.split.realigned.HaplotypeCaller.vcf ${i/.bam}.split.realigned.HaplotypeCaller.vcf.idx ${i/.bam}.readgroups.bam.ok ${i/.bam}.split.bam.ok ${i/.bam}.split.intervals.ok ${i/.bam}.split.realigned.bam.ok ${i/.bam}.split.realigned.HaplotypeCaller.vcf.ok ${i/.bam}.split.realigned.HaplotypeCaller.filtered.vcf.ok ${i/.bam}.split.realigned.HaplotypeCaller.filtered.ann.vl.vcf.ok ${i/.bam}.split.realigned.HaplotypeCaller.filtered.ann.cg.vcf.ok ${i/.bam}.split.realigned.HaplotypeCaller.filtered.ann.vcf.ok ${i/.bam}.split.realigned.HaplotypeCaller.filtered.vcf ${i/.bam}.split.realigned.HaplotypeCaller.filtered.vcf.idx -r $(pwd)/temp_$input
