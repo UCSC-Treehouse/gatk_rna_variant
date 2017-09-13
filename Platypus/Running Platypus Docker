@@ -26,6 +26,9 @@ sudo docker run -it -v /data/ref/:/data/ref \
 -v /data/rnaseqVarCall/rawGATK_PipelineOutput/SAMPLE_DIRECTORY/:/data/work \
 -e refgenome=GCA_000001405.15_GRCh38_no_alt_analysis_set.fa \
 -e input=SAMPLE.sortedByCoord.md.split.realigned.bam \
+-e C_INCLUDE_PATH=/usr/local/include \
+-e LIBRARY_PATH=/usr/local/lib \
+-e LD_LIBRARY_PATH=/usr/local/lib \
 platypus_tag/here
 
 Note:
