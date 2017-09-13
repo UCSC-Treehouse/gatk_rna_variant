@@ -57,7 +57,7 @@ Don't incluce chrZ:x-y in the command.
 through and adds the introns back into the samples, so Platypus doesn't get confused. Run Opossum on your 
 file with the following command:
 
-python /root/Opossum/Opossum.py --SoftClipsExist=True -BamFile=SAMPLE_PREOPOSSUM.bam -OutFile=SAMPLE_POSTOPOSSUM.bam
+python /root/Opossum/Opossum.py --SoftClipsExist=True --BamFile=SAMPLE_PREOPOSSUM.bam --OutFile=SAMPLE_POSTOPOSSUM.bam
 
 Note:
 Replace SAMPLE_PREOPOSSUM.bam and SAMPLE_POSTOPOSSUM.bam
