@@ -56,7 +56,8 @@ the chromosome and bases that you want to look at (e.g. chr9:1023002-1023037). I
 look at the entire chromosome, don't put anything for x-y. If you want to look at the whole genome. 
 Don't incluce chrZ:x-y in the command.
 
-6. Now your file is ready for Opossum. Platypus typically only works on DNA samples. So Opossum goes 
+6. 
+Now your file is ready for Opossum. Platypus typically only works on DNA samples. So Opossum goes 
 through and adds the introns back into the samples, so Platypus doesn't get confused. Run Opossum on your 
 file with the following command:
 
@@ -66,7 +67,8 @@ Note:
 Replace SAMPLE_PREOPOSSUM.bam and SAMPLE_POSTOPOSSUM.bam
 
 
-7. Platypus is now able to handle your file. Run it with the following command:
+7. 
+Platypus is now able to handle your file. Run it with the following command:
 
 python /root/Platypus_0.8.1/Platypus.py callVariants --bamFiles=SAMPLE_POSTOPOSSUM.bam 
 --refFile=/data/ref/$refgenome --output=SAMPLE.vcf --region=chrZ:x-y
@@ -74,5 +76,6 @@ python /root/Platypus_0.8.1/Platypus.py callVariants --bamFiles=SAMPLE_POSTOPOSS
 Note:
 Replace SAMPLE_POSTOPOSSUM.bam, SAMPLE.vcf, and chrZ:x-y
 
-8. After this, you are done. The results are now in SAMPLE.vcf. When you are done using the container 
+8. 
+After this, you are done. The results are now in SAMPLE.vcf. When you are done using the container 
 enter "exit" into the command line to return back to Holly's server. 
