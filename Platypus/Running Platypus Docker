@@ -44,7 +44,7 @@ cd /data/work
 We need to prep your bam file for Opossum and Platypus, do so by entering:
 
 samtools index $input
-samtools view $input -b –o SAMPLE_PREOPOSSUM.bam chrZ:x-y
+samtools view $input -b -o SAMPLE_PREOPOSSUM.bam chrZ:x-y
 samtools calmd SAMPLE_PREOPOSSUM.bam /data/ref/$refgenome
 
 Note:
