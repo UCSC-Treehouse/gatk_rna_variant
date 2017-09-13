@@ -12,12 +12,9 @@ Use cd to change directories to where Platypus_Dockerfile is.
 3. 
 Then enter 
 
-sudo docker build --file Platypus_Dockerfile --tag “yourtag/here” .
+sudo docker build --file Platypus_Dockerfile --tag “cmargeru/platypus_docker” .
 
 to build the docker image (make sure to include the period).
-
-Note:
-Replace "yourtage/here" with the name you want for your image.
 
 4. 
 Once the image is built, in any directory, you can use:
@@ -29,12 +26,11 @@ sudo docker run -it -v /data/ref/:/data/ref \
 -e C_INCLUDE_PATH=/usr/local/include \
 -e LIBRARY_PATH=/usr/local/lib \
 -e LD_LIBRARY_PATH=/usr/local/lib \
-platypus_tag/here
+cmargeru/platypus_docker
 
 Note:
 Here replace SAMPLE.sortedByCoord.md.split.realigned.bam and SAMPLE_DIRECTORY with the bam file
-you wish to call variants on and the directory where it resides. Also, replace platypus_tag/here with 
-the tag you created for the image.
+you wish to call variants on and the directory where it resides.
 
 5.
 This will start the docker container. Your username will change from your_username@hbeale-altref to something 
