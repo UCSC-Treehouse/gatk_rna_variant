@@ -54,5 +54,6 @@ the chromosome and bases that you want to look at (e.g. chr9:1023002-1023037). I
 the entire chromosome, don't put anything for x-y. If you want to look at the whole genome. 
 Don't incluce --region chrZ:x-y in the command.
 
-6. After this, you are done. The results are now in SAMPLE.vcf. When you are done using the container 
+6. 
+After this, you are done. The results are now in SAMPLE.vcf. When you are done using the container 
 enter "exit" into the command line to return back to Holly's server.
