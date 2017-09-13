@@ -1,6 +1,7 @@
 Running Freebayes Docker
 
-This guide uses Holly Beale’s server to access RNA seq data. If you want access to Holly’s server you need to talk to her and give her a ssh public key. You must also be connected to the VPN. After she gives you access do the following. 
+This guide uses Holly Beale’s server to access RNA seq data. If you want access to Holly’s server you need 
+to talk to her and give her a ssh public key. You must also be connected to the VPN. After she gives you access do the following. 
 
 1. 
 Open your command line and enter: ssh yourusername@10.50.101.45.
@@ -29,10 +30,12 @@ freebayes_tag/here
 
 Note:
 Here replace SAMPLE.sortedByCoord.md.split.realigned.bam and SAMPLE_DIRECTORY with the bam file
-you wish to call variants on and the directory where it resides. Also, replace freebayes_tag/here with the tag you created for the image.
+you wish to call variants on and the directory where it resides. Also, replace freebayes_tag/here 
+with the tag you created for the image.
 
 5.
-This will start the docker container. Your username will change from your_username@hbeale-altref to something like root@4bd39a24e21c. Here all the software that you need will already be installed. 
+This will start the docker container. Your username will change from your_username@hbeale-altref to 
+something like root@4bd39a24e21c. Here all the software that you need will already be installed. 
 
 Now, change directories to /data/work:
 
@@ -40,11 +43,16 @@ cd /data/work
 
 Here you can use:
 
-/root/freebayes/bin/freebayes --region chrZ:x-y --dont-left-align-indels --pooled-continuous --pooled-discrete -F 0.03 -C 2 -f /data/ref/$refgenome $input > SAMPLE.vcf
+/root/freebayes/bin/freebayes --region chrZ:x-y --dont-left-align-indels --pooled-continuous 
+--pooled-discrete -F 0.03 -C 2 -f /data/ref/$refgenome $input > SAMPLE.vcf
 
 to run freebayes on your sample.
 
 Note:
-Once again, replace SAMPLE.vcf with the file name that you want your results to go and chrZ:x-y with the chromosome and bases that you want to look at (e.g. chr9:1023002-1023037). If you want to look at the entire chromosome, don't put anything for x-y. If you want to look at the whole genome. Don't incluce --region chrZ:x-y in the command.
+Once again, replace SAMPLE.vcf with the file name that you want your results to go and chrZ:x-y with 
+the chromosome and bases that you want to look at (e.g. chr9:1023002-1023037). If you want to look at 
+the entire chromosome, don't put anything for x-y. If you want to look at the whole genome. 
+Don't incluce --region chrZ:x-y in the command.
 
-6. After this, you are done. The results are now in SAMPLE.vcf. When you are done using the container enter "exit" into the command line to return back to Holly's server.
+6. After this, you are done. The results are now in SAMPLE.vcf. When you are done using the container 
+enter "exit" into the command line to return back to Holly's server.
