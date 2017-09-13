@@ -12,12 +12,9 @@ Use cd to change directories to where Freebayes_Dockerfile is.
 3. 
 Then enter 
 
-sudo docker build --file Freebayes_Dockerfile --tag “yourtag/here” .
+sudo docker build --file Freebayes_Dockerfile --tag “cmargeru/freebayes_docker” .
 
 to build the docker image (make sure to include the period).
-
-Note:
-Replace "yourtage/here" with the name you want for your image.
 
 4. 
 Once the image is built, in any directory, you can use:
@@ -26,12 +23,11 @@ sudo docker run -it -v /data/ref/:/data/ref \
 -v /data/rnaseqVarCall/rawGATK_PipelineOutput/SAMPLE_DIRECTORY/:/data/work \
 -e refgenome=GCA_000001405.15_GRCh38_no_alt_analysis_set.fa \
 -e input=SAMPLE.sortedByCoord.md.split.realigned.bam \
-freebayes_tag/here
+cmargeru/freebayes_docker
 
 Note:
 Here replace SAMPLE.sortedByCoord.md.split.realigned.bam and SAMPLE_DIRECTORY with the bam file
-you wish to call variants on and the directory where it resides. Also, replace freebayes_tag/here 
-with the tag you created for the image.
+you wish to call variants on and the directory where it resides.
 
 5.
 This will start the docker container. Your username will change from your_username@hbeale-altref to 
