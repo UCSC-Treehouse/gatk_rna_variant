@@ -32,7 +32,13 @@ Here replace SAMPLE.sortedByCoord.md.split.realigned.bam and SAMPLE_DIRECTORY wi
 you wish to call variants on and the directory where it resides. Also, replace freebayes_tag/here with the tag you created for the image.
 
 5.
-This will start the docker container. Your username will change from your_username@hbeale-altref to something like root@4bd39a24e21c. Here all the software that you need will already be installed. Change directories to /data/work. Here you can use:
+This will start the docker container. Your username will change from your_username@hbeale-altref to something like root@4bd39a24e21c. Here all the software that you need will already be installed. 
+
+Now, change directories to /data/work:
+
+cd /data/work
+
+Here you can use:
 
 /root/freebayes/bin/freebayes --region chrZ:x-y --dont-left-align-indels --pooled-continuous --pooled-discrete -F 0.03 -C 2 -f /data/ref/$refgenome $input > SAMPLE.vcf
 
