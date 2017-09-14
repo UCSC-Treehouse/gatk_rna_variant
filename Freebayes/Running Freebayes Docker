@@ -19,7 +19,7 @@ to build the docker image (make sure to include the period).
 4. 
 Once the image is built, in any directory, you can use:
 
-sudo docker run -it -v /data/ref/:/data/ref \
+sudo docker run --rm -it -v /data/ref/:/data/ref \
 -v /data/rnaseqVarCall/rawGATK_PipelineOutput/SAMPLE_DIRECTORY/:/data/work \
 -e refgenome=GCA_000001405.15_GRCh38_no_alt_analysis_set.fa \
 -e input=SAMPLE.sortedByCoord.md.split.realigned.bam \
