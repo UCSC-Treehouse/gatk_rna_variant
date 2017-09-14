@@ -44,7 +44,7 @@ We need to prep your bam file for Opossum and Platypus, do so by entering:
 
 samtools index $input
 samtools view $input -b -o SAMPLE_PREOPOSSUM.bam chrZ:x-y
-samtools calmd SAMPLE_PREOPOSSUM.bam /data/ref/$refgenome
+samtools calmd –b SAMPLE_PREOPOSSUM.bam /data/ref/$refgenome > SAMPLE_PREOPOSSUM.calmd.bam 
 
 Note:
 Replace SAMPLE_PREOPOSSUM.bam with the name you wish for the output and change chrZ:x-y with 
@@ -57,11 +57,13 @@ Now your file is ready for Opossum. Platypus typically only works on DNA samples
 through and adds the introns back into the samples, so Platypus doesn't get confused. Run Opossum on your 
 file with the following command:
 
-python /root/Opossum/Opossum.py --SoftClipsExist=True --BamFile=SAMPLE_PREOPOSSUM.bam --OutFile=SAMPLE_POSTOPOSSUM.bam
+python /root/Opossum/Opossum.py \
+--SoftClipsExist=True \
+--BamFile=SAMPLE_PREOPOSSUM.calmd.bam \
+--OutFile=SAMPLE_POSTOPOSSUM.bam
 
 Note:
-Replace SAMPLE_PREOPOSSUM.bam and SAMPLE_POSTOPOSSUM.bam
-
+Replace SAMPLE_PREOPOSSUM.bam, SAMPLE_POSTOPOSSUM.bam, and SAMPLE_POSTOPOSSUM.calmd.bam
 
 7. 
 Platypus is now able to handle your file. Run it with the following command:
