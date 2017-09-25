@@ -42,4 +42,4 @@ ADD run.sh /opts/
 
 WORKDIR /data
 
-ENTRYPOINT /opts/run.sh
+ENTRYPOINT ["/bin/bash", "/opts/run.sh"]
