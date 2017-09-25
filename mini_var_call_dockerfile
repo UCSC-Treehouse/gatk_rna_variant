@@ -33,7 +33,7 @@ ADD TH_precise_merged.bed /ref/
 # run.sh from repo to /opts
 ADD run.sh /opts/
 # GCA_000001405.15_GRCh38_no_alt_analysis_set.fa from local computer to /ref
-ADD /data/ref/GCA_000001405.15_GRCh38_no_alt_analysis_set.fa /ref/
+COPY /data/ref/GCA_000001405.15_GRCh38_no_alt_analysis_set.fa /ref/
 
 WORKDIR /data
 
