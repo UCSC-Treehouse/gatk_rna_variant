@@ -66,8 +66,11 @@ NRAS G12D
 ```
 
 ## Testing
-The code repository contains data that can be run to confirm that your installation is working correctly. For example
+The code repository contains data that can be run to confirm that your installation is working correctly. 
 
+Commands to call variants:
+
+```
 cd /data/tmp
 git clone https://github.com/UCSC-Treehouse/rna_variant_call.git
 
@@ -75,6 +78,22 @@ docker run --rm -v /data/:/data \
 hbeale/mini_var_call \
 /data/tmp/rna_variant_call/test/test.bam  \
 /data/ref/GCA_000001405.15_GRCh38_no_alt_analysis_set.fa
+```
+Commands to review variants with a quality score above zero:
+
+```
+vcf=/data/tmp/rna_variant_call/example/Jak2Example.mini.ann.vcf 
+cat  $vcf | grep -v ^# | \
+awk '$6 !~ /E/  && $6 > 0 { print }' | \
+sed 's/^.*;EFF=\([^)]*\)).*/\1/' | \
+cut -f6,4 -d"|" --output-delimiter " " | awk '{ print $2 " " $1}'
+```
+
+Expected output
+```
+JAK2 R683S
+```
+
 
 
 ## Example command line output (stdout)
