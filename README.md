@@ -39,7 +39,7 @@ Could not find any mapped reads in target region chr2:29222406..29222407
 ```
 
 ## Input
-The docker takes in a coordinate-sorted bam and the full location of GCA_000001405.15_GRCh38_no_alt_analysis_set.fa. If the bam file does has an associated index file (bai) that will greatly increase the speed (15 min -> 3 min for the file I tested time on), but indexing takes long enough that it doesn't doesn't improve the overall time required to index the bam file for this purpose alone. 
+The docker takes as arguments the locations of a coordinate-sorted bam and the  GCA_000001405.15_GRCh38_no_alt_analysis_set.fa. The fasta file must have a correponding index file. The bam file may have a corresponding index file (bai). It will greatly increase the speed (15 min -> 3 min for the file I tested time on), but indexing takes long enough that it doesn't doesn't improve the overall time required to index the bam file for this purpose alone. 
 
     
 ## Expected output file
