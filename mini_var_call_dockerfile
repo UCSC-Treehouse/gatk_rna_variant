@@ -1,0 +1,45 @@
+FROM ubuntu:14.04
+MAINTAINER holly beale
+
+RUN apt-get update && apt-get install -y --force-yes --no-install-recommends \
+  wget \
+  git \
+  unzip \
+  build-essential \
+  zlib1g-dev \
+  cmake \
+  samtools \
+  software-properties-common
+
+RUN add-apt-repository ppa:openjdk-r/ppa -y
+RUN apt-get update && apt-get install -y --force-yes --no-install-recommends \
+  openjdk-8-jdk
+
+WORKDIR /root
+
+RUN wget http://sourceforge.net/projects/snpeff/files/snpEff_latest_core.zip
+RUN unzip snpEff_latest_core.zip
+RUN java -jar ./snpEff/snpEff.jar download GRCh38.86
+
+RUN wget http://clavius.bc.edu/~erik/freebayes/freebayes-5d5b8ac0.tar.gz
+RUN tar xzvf freebayes-5d5b8ac0.tar.gz
+WORKDIR /root/freebayes
+RUN make
+
+# custom files
+RUN mkdir -p /ref
+
+# add reference files
+# GCA_000001405.15_GRCh38_no_alt_analysis_set.fa from local computer to /ref
+# COPY GCA_000001405.15_GRCh38_no_alt_analysis_set.fa /ref/
+# COPY GCA_000001405.15_GRCh38_no_alt_analysis_set.fa.fai /ref/
+
+# add bed file from repo to /ref
+ADD TH_precise_merged.bed /ref/
+
+# run.sh from repo to /opts
+ADD run.sh /opts/
+
+WORKDIR /data
+
+ENTRYPOINT ["/bin/bash", "/opts/run.sh"]

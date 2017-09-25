@@ -1,84 +1,138 @@
-# GATK RNAseq Variant Calling Analysis
-Docker image of GATK best practices approach for variant calling on RNAseq data. 
-
-For full details please visit https://software.broadinstitute.org/gatk/guide/article?id=3891. 
+# RNA-Seq Variant Calling Analysis
+Dockerized process for variant calling on RNA-Seq data. 
 
 The steps for the workflow are:
-* Add read groups, sort, mark duplicates, and create index using PICARD (https://broadinstitute.github.io/picard/)
-* Split’N’Trim and reassign mapping qualities
-* GATK IndelRealigner
-* snpEff (http://snpeff.sourceforge.net/SnpEff.html) 5) GATK HaplotypeCaller
-* GATK SelectVariants
+
+- Call a small set of variants using Freebayes (v9.9.2-27-g5d5b8ac)
+- Annotate variants using SnpEff (4.3r, GRCh38.86)
 
 ## Usage
-    docker pull linhvoyo/gatk_rna_variant_v2
+
+```
+docker run --rm -v /data/:/data \
+hbeale/mini_var_call \
+/data/sampleID.sortedByCoord.md.bam \
+/data/ref/GCA_000001405.15_GRCh38_no_alt_analysis_set.fa
+```
+## Availablity
+The docker can be obtained from docker.io with the command.
+
+```
+ docker push hbeale/mini_var_call
+```
+
+The source code is available at 
+https://github.com/UCSC-Treehouse/rna_variant_call.
+
+
+## Notes
+Because there are few of these variants, it is common to have no variants reported for a given sample. 
+
+Because these are cannonical variants that may be supported by few reads, Freebayes is set to maximum sensitivity. Review stats and bam alignment to determine whether you think they are real. 
+
+This type of error is expected and is not of concern:
+
+```
+Could not find any mapped reads in target region chr2:29222346..29222347
+Could not find any mapped reads in target region chr2:29222406..29222407
+
+```
+
+## Input
+The docker takes in a coordinate-sorted bam and the full location of GCA_000001405.15_GRCh38_no_alt_analysis_set.fa. If the bam file does has an associated index file (bai) that will greatly increase the speed (15 min -> 3 min for the file I tested time on), but indexing takes long enough that it doesn't doesn't improve the overall time required to index the bam file for this purpose alone. 
+
     
-    docker run -it -v /path/to/ref_folder:/data/ref \ -v /path/to/input_folder/:/data/work \
-        -e refgenome=input_reference_genome.fa \
-        -e input=sample.sorted.bam \
-        linhvoyo/gatk_rna_variant_v2 | tee >>/path/to/input_folder/out
+## Expected output file
 
-## Details
-    docker run 
-Command to initiate docker.
+The output file will be in the mounted directory containing test.bam.
 
-    -v /path/to/ref folder:/data/ref
-State the full path of directory containing the reference genome. The -v parameter will mount the listed directory into the docker container. 
-
-    -v /path/to/input folder/:.data/work
-State the full path of working directory containing the input bam file. 
+    sampleID.mini.ann.vcf
     
-    -e refgenome=input reference genome.fa
-Provide the name of reference genome. 
-    
-    -e input=sample.sorted.bam
-Provide the name of the input file. The docker takes in a sorted bam file that was aligned using STAR aligner (https://github.com/alexdobin/STAR).
+The following commands can be used to review variants with a quality score above zero. We expect this to contain false positive variants, so review the full data if the preliminary results are of interest.
 
-## Example run command and the expected output
+```
+vcf=sampleID.sortedByCoord.md.mini.ann.vcf 
+cat  $vcf | grep -v ^# | \
+awk '$6 !~ /E/  && $6 > 0 { print }' | \
+sed 's/^.*;EFF=\([^)]*\)).*/\1/' | \
+cut -f6,4 -d"|" --output-delimiter " " | awk '{ print $2 " " $1}'
+```
 
-### Run command
-    docker run -it -v /data/ref:/data/ref \
-        -v $(pwd):/data/work \
-        -e refgenome=GCA_000001405.15_GRCh38_no_alt_analysis_set.fa \ 
-        -e input=test.bam \
-        linhvoyo/gatk_rna_variant_v2 | tee >> test.bam.out
+Generates this type of output: 
 
-### Output files
-All output files will be in the mounted directory containing test.bam.
+```
+JAK2 R683S
+NRAS G12D
+```
 
-    test.split.realigned.bam
-    test.split.realigned.bai
-    test.split.realigned.HaplotypeCaller.filtered.ann.vcf 
-    test.split.realigned.HaplotypeCaller.filtered.ann.vcf.idx
+## Example command line output (stdout)
 
-Variant calls filtered by the list of canonical variants obtained from Max H. The coordinates were converted from hg19 to hg38 using     UCSC liftOver (https://genome.ucsc.edu/cgi-bin/hgLiftOver).
+```
 
-    test.split.realigned.HaplotypeCaller.filtered.ann.vl.vcf
-    test.split.realigned.HaplotypeCaller.filtered.ann.vl.vcf.idx
+00:00:00       SnpEff version SnpEff 4.3r (build 2017-09-06 16:41), by Pablo Cingolani
+00:00:00       Command: 'ann'
+00:00:00       Reading configuration file 'snpEff.config'. Genome: 'GRCh38.86'
+00:00:00       Reading config file: /data/snpEff.config
+00:00:00       Reading config file: /root/snpEff/snpEff.config
+00:00:01       done
+00:00:01       Reading database for genome version 'GRCh38.86' from file '/root/snpEff/./data/GRCh38.86/snpEffectPredictor.bin' (this might take a while)
+00:00:35       done
+00:00:35       Loading interactions from : /root/snpEff/./data/GRCh38.86/interactions.bin
+00:00:52        Interactions: 1793688 added, 0 skipped.
+00:00:52       Building interval forest
+00:01:00       done.
+00:01:00       Genome stats :
+#-----------------------------------------------
+# Genome name                : 'Homo_sapiens'
+# Genome version             : 'GRCh38.86'
+# Genome ID                  : 'GRCh38.86[0]'
+# Has protein coding info    : true
+# Has Tr. Support Level info : true
+# Genes                      : 58051
+# Protein coding genes       : 20423
+#-----------------------------------------------
+# Transcripts                : 198002
+# Avg. transcripts per gene  : 3.41
+# TSL transcripts            : 166906
+#-----------------------------------------------
+# Checked transcripts        : 
+#               AA sequences :      0 ( 0.00% )
+#              DNA sequences : 163038 ( 82.34% )
+#-----------------------------------------------
+# Protein coding transcripts : 94384
+#              Length errors :  13357 ( 14.15% )
+#  STOP codons in CDS errors :     51 ( 0.05% )
+#         START codon errors :  11250 ( 11.92% )
+#        STOP codon warnings :   7169 ( 7.60% )
+#              UTR sequences :  91549 ( 46.24% )
+#               Total Errors :  23099 ( 24.47% )
+#-----------------------------------------------
+# Cds                        : 704604
+# Exons                      : 1182163
+# Exons with sequence        : 1182163
+# Exons without sequence     : 0
+# Avg. exons per transcript  : 5.97
+# WARNING!                   : Mitochondrion chromosome 'MT' does not have a mitochondrion codon table (codon table = 'Standard'). You should update the config file.
+#-----------------------------------------------
+# Number of chromosomes      : 524
+# Chromosomes                : Format 'chromo_name size codon_table'
+#              'HSCHR1_2_CTG3'  248975002       Standard
+#              'HSCHR1_1_CTG31' 248973653       Standard
+#              'HSCHR1_2_CTG31' 248971826       Standard
 
-Variant calls filtered by cancer genes. The list of cancer genes was downloaded from Cancer Census (https://cancer.sanger.ac.uk).     The coordiantes are in hg38.
 
-    test.split.realigned.HaplotypeCaller.filtered.ann.cg.vcf
-    test.split.realigned.HaplotypeCaller.filtered.ann.cg.vcf.idx
+...
+#              'KI270742.1'     186739  Standard
+#              'GL000205.2'     185591  Standard
+#              'GL000195.1'     182896  Standard
+#              'KI270736.1'     181920  Standard
+#              'KI270733.1'     179772  Standard
+... and so on
 
-The generated ”log” shows a brief overview of the variant calling process. The file will show ”Done (linhvoy- o/gatk rna variant v2) - test.bam” once sample has finished processing.
 
-    test.bam.log
-    
-### Example Output
-    Wed Mar 15 17:06:18 UTC 2017 Add Read Groups - test.bam
-    Wed Mar 15 17:06:27 UTC 2017 Add Read Groups - test.bam - Done
-    Wed Mar 15 17:06:27 UTC 2017 SplitNCigarReads - test.bam
-    Wed Mar 15 17:06:38 UTC 2017 SplitNCigarReads - test.bam - Done
-    Wed Mar 15 17:06:38 UTC 2017 RealignerTargetCreator - test.bam
-    Wed Mar 15 17:11:47 UTC 2017 RealignerTargetCreator - test.bam - Done Wed Mar 15 17:11:47 UTC 2017 IndelRealigner - test.bam
-    Wed Mar 15 17:12:01 UTC 2017 IndelRealigner - test.bam - Done
-    Wed Mar 15 17:12:01 UTC 2017 HaplotypeCaller -
-    Wed Mar 15 17:47:56 UTC 2017 HaplotypeCaller -
-    Wed Mar 15 17:47:56 UTC 2017 VariantFiltration
-    Wed Mar 15 17:48:00 UTC 2017 VariantFiltration
-    Wed Mar 15 17:48:00 UTC 2017 snpEff - test.bam
-    Wed Mar 15 17:49:34 UTC 2017 snpEff - test.bam
-    Wed Mar 15 17:49:34 UTC 2017 SelectVariants - variant list - test.bam
-    Wed Mar 15 17:49:38 UTC 2017 SelectVariants - variant list - test.bam - Done Wed Mar 15 17:49:38 UTC 2017 SelectVariants - gene list - test.bam
-    Wed Mar 15 17:49:42 UTC 2017 SelectVariants - gene list - test.bam - Done Wed Mar 15 17:49:42 UTC 2017 Done (linhvoyo/gatk_rna_variant_v2) - test.bam
+00:01:08       done.
+00:01:08       Logging
+00:01:09       Checking for updates...
+00:01:10       Done.
+```
+
