@@ -4,11 +4,9 @@ freeBayesSettings="--dont-left-align-indels --pooled-continuous --pooled-discret
 
 b=$1
 
+fasta=$2
 
-echo here it is: $b
-
-
-/root/freebayes/bin/freebayes --targets  /ref/TH_precise_merged.bed $freeBayesSettings -f /ref/GCA_000001405.15_GRCh38_no_alt_analysis_set.fa $b >  ${b/bam}mini.vcf
+/root/freebayes/bin/freebayes --targets  /ref/TH_precise_merged.bed $freeBayesSettings -f $fasta $b >  ${b/bam}mini.vcf
 
 snpEffSettings="-nodownload -noNextProt -noMotif -noStats -classic -no PROTEIN_PROTEIN_INTERACTION_LOCUS -no PROTEIN_STRUCTURAL_INTERACTION_LOCUS"
 

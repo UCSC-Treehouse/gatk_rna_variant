@@ -31,8 +31,8 @@ RUN mkdir -p /ref
 
 # add reference files
 # GCA_000001405.15_GRCh38_no_alt_analysis_set.fa from local computer to /ref
-COPY GCA_000001405.15_GRCh38_no_alt_analysis_set.fa /ref/
-COPY GCA_000001405.15_GRCh38_no_alt_analysis_set.fa.fai /ref/
+# COPY GCA_000001405.15_GRCh38_no_alt_analysis_set.fa /ref/
+# COPY GCA_000001405.15_GRCh38_no_alt_analysis_set.fa.fai /ref/
 
 # add bed file from repo to /ref
 ADD TH_precise_merged.bed /ref/
