@@ -3,8 +3,8 @@ Dockerized process for variant calling on RNA-Seq data.
 
 The steps for the workflow are:
 
-- Call a small set of variants (Freebayes v9.9.2-27-g5d5b8ac)
-- Annotate variants (SnpEff 4.3r, GRCh38.86)
+- Call a small set of variants using Freebayes (v9.9.2-27-g5d5b8ac)
+- Annotate variants using SnpEff (4.3r, GRCh38.86)
 
 ## Usage
 
