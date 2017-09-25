@@ -38,4 +38,4 @@ COPY GCA_000001405.15_GRCh38_no_alt_analysis_set.fa.fai /ref/
 
 WORKDIR /data
 
-ENTRYPOINT /ops/run.sh
+ENTRYPOINT /opts/run.sh
